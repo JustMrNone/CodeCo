@@ -1,0 +1,15 @@
+.container{
+    margin-top: 150px;
+}
+.card{
+    height: 550px;
+    width: 300px;
+}
+
+.card-text{
+    height: 125px;
+}
+
+.card-img-top{
+    height: 300px;
+}

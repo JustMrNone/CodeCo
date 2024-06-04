@@ -1,0 +1,173 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Custom margin to move the container down */
+.custom-margin {
+    margin-top: 105px !important;
+}
+
+/* Ensure search button has custom styling */
+.searchbutton {
+    background-color: #3c6382;
+    border-color: #3c6382;
+}
+.searchbutton:hover {
+    background-color: #60a3bc;
+    border-color: #60a3bc;
+}
+
+/* Responsive margin adjustment */
+@media screen and (max-width: 768px) {
+    .custom-margin {
+        margin-top: 25px !important;
+    }
+}
+
+/* Ensure navbar links are not underlined */
+.navbar a {
+    text-decoration: none;
+}
+
+/* Dropdown menu items should not be underlined */
+.dropdown-menu a {
+    text-decoration: none;
+}
+
+.custom-search-container {
+    width: 100%; /* Adjust width as needed */
+    border-radius: 10px; /* Optional: Add border radius for rounded corners */
+}
+
+.custom-search-input {
+    height: 45px; /* Adjust height as needed */
+}
+.custom-search-input:focus {
+    border-color: #60a3bc; /* Change border color when input is in focus */
+    box-shadow: 0 0 0 0.2rem rgba(96, 163, 188, 0.25); /* Optional: Add a subtle box shadow */
+}
+#searchOption:hover{
+    background-color: #40407a;
+    border-color: #aaa69d;
+    color: #f7f1e3;
+}
+.dropdown-item:hover{
+    background-color: #5b5b77;
+}
+/* Adjustments for index container */
+.index-container {
+    margin: 0 auto; /* Center horizontally */
+    margin-top: 20px; /* Add top margin */
+    width: 80%; /* Responsive width */
+    max-width: 1100px;
+    padding: 18px;
+    color: #1e272e;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.index-image img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 65px;
+}
+
+.index-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.index-title {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 38px;
+}
+
+.index-content {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.index-title .blogtitle {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.index-title .blogtitle:hover {
+    color: #227093;
+    text-decoration: underline;
+}
+
+.index-title .blogtitle:visited {
+    color: #9b59b6;
+}
+
+.index-title .blogtitle:visited:hover {
+    color: #6a3c7c;
+}
+
+.index-read-more {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #CAD3C8;
+    color: #2f3640;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+.index-read-more:hover {
+    background-color: #d1ccc0;
+    color: #2f3640;
+    text-decoration: none;
+}
+.divider {
+    width: 56%; /* Adjust width as needed */
+    height: 1px; /* Set the height of the line */
+    background-color: #ccc; /* Set the color of the line */
+    margin: 20px auto; /* Center the line horizontally and add margin */
+}
+
+@media (max-width: 768px) {
+    .divider {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+@media (max-width: 600px) {
+    .index-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .index-title {
+        font-size: 1.5em;
+    }
+
+    .index-content {
+        font-size: 0.9em;
+    }
+
+    .index-read-more {
+        align-self: center;
+    }
+
+    .index-image img {
+        width: 100%;
+        height: auto;
+    }
+}

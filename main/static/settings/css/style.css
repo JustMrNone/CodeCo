@@ -1,0 +1,6 @@
+body{
+  min-height: 110vh;
+}
+.spacer {
+  height: 1000px; /* Adjust this value as needed to extend beyond the viewport */
+}

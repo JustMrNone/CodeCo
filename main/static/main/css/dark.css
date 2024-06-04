@@ -1,0 +1,79 @@
+/*Navigation*/
+nav.navdark {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%; /* Occupy the full width of the parent container */
+  max-width: 100%; /* Limit the maximum width to the parent container width */
+  margin: 0;
+  background-color: #7a4343; /*apply Darkboy Red
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  height: 80px;
+  overflow: hidden;
+  
+}
+.containerse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.NavToggle {
+  position: absolute;
+  top: 1px; /* Adjust as needed */
+  right: 340px; /* Adjust as needed */
+  margin-top: 15px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .NavToggle {
+    position: absolute!important; /* Ensure it takes precedence */
+    top: 1px !important; /* Adjust the top position */
+    right: 20px !important; /* Position at the right edge */
+    margin-top: 15px; /* Optional, adjust or remove as needed */
+    z-index: 10000 !important; /* Ensure it is above other elements */
+    display: flex !important; /* Ensure flexbox is applied */
+    align-items: center !important; /* Center children vertically */
+  }
+}
+@media (max-width: 830px){
+  .NavToggle {
+    display: none;
+  }
+}
+/*BackGround*/
+.dark-mode {
+    background-color: #333333 !important; /* Dark mode background color */
+
+  }
+
+/*Mobile*/
+
+.dark-mode .mobileIcons a {
+  background-color: #7a4343 !important; /* Apply dark mode background color to .mobileIcons a */
+}
+.dark-mode .mobileIcons a:hover{
+  background-color: #865454 !important; /* Apply dark mode background color to .mobileIcons a:hover */
+}
+/*Footer*/
+.dark-mode .arrowup {
+  color: #f7f1e3; /* Color in dark mode */
+}
+
+.dark-mode .page-footer {
+  background-color: #84817a !important; /* Dark mode background color for footer */
+}
+
+.dark-mode .palette-card{
+  background-color: #4b4b4b !important;
+  border: 1px solid #3d3d3d;
+}
+
+.dark-mode .dev-tools-item{
+  background-color: #4b4b4b !important;
+  border: 1px solid #3d3d3d;
+}

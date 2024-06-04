@@ -1,0 +1,20 @@
+.cardlogin {
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 1rem;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+.form-control {
+    border-radius: 0.5rem;
+}
+.text-muted {
+    font-size: 0.9rem;
+}

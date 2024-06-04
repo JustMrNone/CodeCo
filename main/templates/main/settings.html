@@ -1,0 +1,24 @@
+{% extends "main/layout.html" %} 
+{% load static %}
+<!-- This allows child templates to override or extend these sections with their own content -->
+{% block title %}
+    Settings
+{% endblock title %} 
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'settings/css/style.css' %}">
+
+{% endblock head %}
+
+{% block header %}
+
+{% endblock header%}
+
+{% block body %}
+
+  <div class="spacer"></div>  <!-- Add a dummy element for scrolling -->
+{% endblock body%}
+
+{% block footer %}
+
+{% endblock footer %}

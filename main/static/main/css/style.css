@@ -1,0 +1,412 @@
+/*navbar stylings */
+html {
+  scroll-behavior: smooth;
+}
+.navbartxt{
+    color: #21232a;
+    right: 10px;
+}
+#menu {
+  display: none;
+  
+}
+* {
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+body {
+  font-family: "Roboto", sans-serif !important;
+  text-align: center;
+  background-color: #f6f2ef;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+.nav {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%; /* Occupy the full width of the parent container */
+    max-width: 100%; /* Limit the maximum width to the parent container width */
+    margin: 0;
+    background-color: #b33939;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    height: 80px;
+    overflow: hidden;
+    
+  }
+  
+.nav [type="checkbox"] {
+  position: absolute;
+  left: -9999px !important;
+}
+.nav [type="checkbox"] + label {
+  width: 60px;
+  height: 60px;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 9999;
+  background: #3c6382;
+  border-radius: 50%;
+  margin-top: 39px;
+  transform: translateY(-50%);
+  transition: all 0.2s;
+  font-weight: bold;
+  /* Add box-shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.nav [type="checkbox"] + label:hover {
+  background: #227093;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.menu li {
+  position: absolute;
+  top: -25px;
+  left: 0%;
+  transition: all 0.4s;
+}
+.menu li:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.menu li:nth-child(2) {
+  transition-delay: 0.15s;
+}
+.menu li:nth-child(3) {
+  transition-delay: 0.1s;
+}
+.menu li:nth-child(4) {
+  transition-delay: 0.05s;
+}
+.menu li a {
+  align-items: flex-end;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  background: #079992; /* Default background color */
+  margin-top: 45px;
+  margin-left: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s; /* Smooth transition for color change */
+}
+.menu li a:hover {
+  background: #38ada9; /* Background color on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navitem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(calc(-100% - 5px));
+  width: 100%;
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  color: #2f3640;
+  font-family: 'Sofia';
+  font-weight: bold;
+}
+.nav input:checked + label {
+  background: #3c6382;
+  transform: translateY(calc(-50% + 4px));
+}
+.nav input:checked ~ .menu li:nth-child(1) {
+    top: calc(10% - 25px); /* Adjust top position */
+    left: calc(5.5% + 25px); /* Position closer to the left edge */
+    transition-delay: 0.2s;
+  }
+  .nav input:checked ~ .menu li:nth-child(2) {
+    top: calc(10% - 25px); /* Adjust top position */
+    left: calc(5.5% + 105px); /* Position closer to the left edge */
+    transition-delay: 0.3s;
+  }
+  .nav input:checked ~ .menu li:nth-child(3) {
+    top: calc(10% - 25px); /* Adjust top position */
+    left: calc(5.5% + 185px); /* Position closer to the left edge */
+    transition-delay: 0.4s;
+  }
+.nav input:checked ~ .menu li a span {
+  opacity: 1;
+  transition-delay: 0.9s;
+}
+.top-right-text {
+    position: absolute;
+    top: 0px; /* Adjust as needed */
+    right: 25px; /* Adjust as needed */
+    margin-top: 15px;
+    color: #1e272e; /* Example styling */
+    font-family: 'Pacifico', cursive;
+    font-size: 28px;
+
+}
+.fa {
+  font-size: 30px;
+  position: relative; /* Ensure the element has a positioned parent */
+  z-index: 9999;
+}
+.icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1; /* Set a z-index to position the icon behind the menu item */
+  transition: transform 0.3s ease;
+  transform-origin: top left;
+  color: #f7f1e3;
+}
+.icons:hover {
+  color: #1e272e;
+  transform: translate(-50%, -50%) scale(1.1); /* Scale the icon to 1.2 times its original size on hover */
+}
+.menuicon{
+  font-size: 25px !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+  transform-origin: top left;
+  color: #f7f1e3;
+}
+.menuicon:hover{
+  transform: translate(-50%, -50%) scale(1.1);
+  color: #1e272e;
+}
+.homeicon {
+  transition: transform 0.3s ease, text-shadow 0.3s ease; /* Add transition for both transform and text-shadow */
+}
+
+.homeicon:hover {
+  transform: scale(1.02);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow effect on hover */
+}
+.imageicon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Adjust the value as needed */
+  height: 70px;
+}
+
+.imageicon:hover {
+  animation: wiggle 0.5s ease-in-out infinite; /* Apply the wiggle animation on hover */
+}
+
+@keyframes wiggle {
+  0% { transform: translate(-50%, -50%) rotate(-5deg); }
+  50% { transform: translate(-50%, -50%) rotate(5deg); }
+  100% { transform: translate(-50%, -50%) rotate(-5deg); }
+}
+
+.settingsicon{
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 180px; /* Adjust as needed */
+  margin-top: 15px;
+  color: #f7f1e3; /* Example styling */
+  font-size: 26px !important;
+  transition: transform 0.3s ease;
+}
+.settingsicon:hover{
+  transform: scale(1.25);
+}
+.githubicon{
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 140px; /* Adjust as needed */
+  margin-top: 15px;
+  z-index: 9999;
+  font-size: 26px;
+  color: #f7f1e3;
+  transition: transform 0.3s ease;
+}
+.githubicon:hover{
+  transform: scale(1.25);
+}
+.basketicon{
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 215px; /* Adjust as needed */
+  margin-top: 15px;
+  z-index: 9999;
+  font-size: 26px;
+  color: #f7f1e3;
+  transition: transform 0.3s ease;
+}
+.basketicon:hover{
+  transform: scale(1.25);
+}
+a {
+  text-decoration: none !important;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.page-footer {
+  background: #d1ccc0;
+  color: #4b4b4b; 
+  padding: 20px;
+  margin-top: auto;
+  text-align: center;
+  opacity: 98%;
+}
+
+.footer-content {
+  display: flex; /* Use flexbox to align items horizontally */
+  width: 100%; /* Take full width of the container */
+  align-items: center; /* Center items vertically */
+  position: relative;
+  justify-content: space-between; /* Distribute space between items */
+}
+
+.arrowcontainer {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+}
+
+.text-container {
+  display: flex; /* Use flexbox for centering text */
+  justify-content: center; /* Center text horizontally */
+  flex-grow: 1; /* Allow the text to take up remaining space */
+  text-align: center;
+}
+
+.text-container p {
+  margin: 0; /* Remove default margin */
+}
+
+.arrowup {
+  transition: transform 0.3s ease;
+  color: #4b4b4b; 
+  font-size: 25px;
+}
+
+.arrowup a {
+  color: inherit; /* Ensure link inherits color from .arrowup */
+  text-decoration: none; /* Remove underline from link */
+}
+
+.arrowup a:visited {
+  color: inherit; /* Make sure visited link doesn't change color */
+}
+
+.arrowup:hover {
+  transform: scale(1.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: row; /* Keep items in a row */
+    flex-wrap: nowrap; /* Prevent items from wrapping to the next line */
+  }
+
+  .text-container {
+    margin-left: 10px; /* Add some spacing for smaller screens */
+  }
+}
+
+.arrowup:hover {
+  transform: scale(1.3);
+}
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 55px;
+  height: 35.4px;
+  left: 30px;
+  top: 0;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 10px;
+  left: 10px;
+  right: 0;
+  bottom: 0;
+  background-color: #7a4343;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #333;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ff4d4d;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #ff4d4d;
+}
+
+input:checked + .slider:before {
+  background-color: #f7f1e3;
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.txtdrk{
+  color: #3d3d3d;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+

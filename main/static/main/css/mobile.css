@@ -1,0 +1,169 @@
+
+  .mobile-container{
+    display: none;
+  }
+@media only screen and (max-width: 768px) {
+  /* Navbar styles for smaller screens */
+  .homeicon, .nav .menu li a, .navitem, .nav [type="checkbox"] + label {
+    display: none;
+  }
+  .settingsicon, .githubicon, .basketicon {
+    display: none !important;
+  }
+  .nav {
+    position: absolute;
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .mobile-container {
+    display: block;
+    max-width: 768px;
+    overflow: hidden;
+    z-index: 9999;
+    text-decoration: none;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    position: relative;
+    margin: 0; /* Ensure no margin around the topnav */
+    padding: 0; /* Ensure no padding around the topnav */
+    top: 0; /* Position at the top */
+  }
+  
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  .topnav a {
+    color: #1e272e;
+    padding: 27px 30px;
+    display: block;
+  }
+  
+  .topnav a.icon {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  
+  .topnav .hamburger-icon {
+    font-size: 25px; /* Adjust this value to make the hamburger icon bigger */
+    transition: transform 0.3s ease;
+    color: #f7f1e3;
+    background-color: none;
+  }
+  
+  .hamburger-icon:hover {
+    transform: scale(1.15);
+    color: #1e272e;
+  }
+  
+  .topnav a:hover {
+    color: #151c20;
+  }
+  
+  .active {
+    height: 80px;
+  }
+  
+  .mobileIcons a {
+    background-color: #b33939;
+    transition: background 0.4s ease;
+    /*transition: transform 0.4s ease;*/
+    font-family: 'Sofia';
+    text-decoration: none;
+    font-size: 19px;
+    position: relative; /* or absolute/fixed/sticky based on your layout needs */
+    z-index: 9999; /* ensures it is on top of most other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    max-width: 810px;
+  }
+  
+  .mobileIcons a:not(.lastit):hover {
+    background-color: #b94646 !important;
+    /*transform: scale(1.01);*/
+  }
+  .mobileIcons .lastit:hover{
+    background-color: #b94646;
+
+  }
+  .micons {
+    transition: transform 0.4s ease;
+    color: #f7f1e3;
+    margin-right: 10px; /* Add space between icon and text */
+    margin-left: 25px;
+  }
+  .micons:hover {
+    transform: scale(1.3);
+    color: #1b1e20;
+  }
+  .link-container {
+    display: flex; /* Ensure the link container is a flex container */
+    justify-content: space-between; /* Distribute items along the main axis */
+    text-decoration: none; /* Remove default underline */
+  }
+  
+  .icon-container {
+    display: flex; /* Use Flexbox to arrange child divs side by side */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .icon-wrapper {
+    position: relative;
+    display: flex; /* Flexbox for centering icons within their wrappers */
+    align-items: center;
+    text-align: center;
+    margin: 0 10px; /* Adjust as needed */
+  }
+  
+  /* Set link to fill available space */
+  .link-container a {
+    flex: 1;
+  }
+  /* Retain existing icon styles */
+  .micons2 {
+    transition: transform 0.4s ease;
+    font-size: 25px;
+    color: #f7f1e3;
+  }
+  
+  .micons2:hover {
+    transform: scale(1.4);
+  }
+  
+  .micons3 {
+    transition: transform 0.4s ease;
+    font-size: 25px;
+    color: #f7f1e3;
+  }
+  
+  .micons3:hover {
+    transform: scale(1.4);
+  }
+  .monavitem {
+    color: #f7f1e3;
+    margin-left: auto; /* Align text to the right */
+    margin-right: 25px;
+    transition: transform 0.4s ease;
+  }
+  .monavitem:hover{
+    transform: scale(1.3);
+    color: #1b1e20;
+  }
+}
+
+@media only screen and (max-width: 180px){
+  .imageicon{
+    display: none;
+  }
+  
+}
+/* Media query for small screens */

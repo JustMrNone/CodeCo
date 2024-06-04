@@ -1,0 +1,26 @@
+{% extends "main/layout.html" %} 
+<!-- This allows child templates to override or extend these sections with their own content -->
+{% block title %}
+    {{ post.title }}
+{% endblock title %} 
+
+{% block head %}
+
+{% endblock head %}
+
+{% block header %}
+
+{% endblock header%}
+
+{% block body %}
+<h1>{{ post.title }}</h1>
+{% if post.image %}
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+{% endif %}
+<p>{{ post.content }}</p>
+<p><small>Published on {{ post.published_date }}</small></p>
+{% endblock body%}
+
+{% block footer %}
+
+{% endblock footer %}

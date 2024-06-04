@@ -1,0 +1,95 @@
+{% extends "main/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Blog
+{% endblock title %}
+
+{% block head %}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+<script src="{% static 'blog/js/script.js' %}"></script>
+{% endblock head %}
+
+{% block header %}
+{% endblock header %}
+
+{% block body %}
+<div class="container mt-5 custom-margin">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="searchOption">Title</button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Title')">Title</a>
+                        <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Category')">Category</a>
+                        <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Category')">Word</a>
+                    </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Enter your search term" aria-label="Search term" id="searchInput">
+                <div class="input-group-append">
+                    <button class="btn btn-primary searchbutton" type="button" onclick="performSearch()">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% for post in posts%}
+<div class="index-container">
+    {% if post.image %}
+    <div class="index-image">
+        <a href="{% url 'blogpost' slug=post.slug %}">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        </a>  
+    </div>
+    {% else %}
+    <div class="index-image">
+        <a href="{% url 'blogpost' slug=post.slug %}">
+            <img src="{% static 'blog/img/Sample.png' %}" alt="Description of image">
+        </a>  
+    </div>
+    {% endif %}
+    <div class="index-content-wrapper">
+        <div class="index-title">
+            <a href="{% url 'blogpost' slug=post.slug %}" class="blogtitle">
+                <span>{{ post.title }}</span>
+            </a>
+        </div>
+        <div class="index-content">
+            <p>{{ post.content }}</p>
+        </div>
+        <p><small>Published on {{ post.published_date }}</small></p>
+        <a href="{% url 'blogpost' slug=post.slug %}" class="index-read-more">Read More</a>
+    </div>
+</div>
+
+
+<hr class="divider">
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endfor %}
+{% endblock body %}
+
+{% block footer %}
+{% endblock footer %}

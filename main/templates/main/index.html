@@ -1,0 +1,124 @@
+{% extends "main/layout.html" %} 
+{% load static %}
+<!-- This allows child templates to override or extend these sections with their own content -->
+{% block title %}
+    Market
+{% endblock title %} 
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'index/css/style.css' %}">
+{% endblock head %}
+
+{% block header %}
+
+{% endblock header%}
+
+{% block body %}
+<div class="palette-header">
+    <h1 class="palette-title">Learn Computer Science From Scratch</h1>
+</div>
+<div class="palette-container">
+    <div class="palette-card">
+        <img src="{% static 'index/img/Indexsamp1.png' %}" alt="Create color themes" class="palette-image">
+        <h2 class="palette-card-title">Understand UI Elements</h2>
+        <p class="palette-description">Design color themes based on color theory with our color palette generator. Use color harmonies on the color wheel to generate beautiful color palettes.</p>
+        <a href="#" class="palette-button">Visit</a>
+    </div>
+    <div class="palette-card">
+        <img src="{% static 'index/img/Indexsamp2.png' %}" alt="Extract themes & gradients" class="palette-image">
+        <h2 class="palette-card-title">Dive into Back-End Developement</h2>
+        <p class="palette-description">Adobe Color gives you the power to extract a beautiful gradient from any image you choose. Create on-trend gradients with up to 16 different colors.</p>
+        <a href="#" class="palette-button">Visit</a>
+    </div>
+    <div class="palette-card">
+        <img src="{% static 'index/img/Indexsamp3.png' %}" alt="Create Accessible themes" class="palette-image">
+        <h2 class="palette-card-title">Learn DataAnalysis With Pandas</h2>
+        <p class="palette-description">Generate inclusive themes with our accessibility tools to cater to audiences with color blindness. Find non-conflicting colors directly on the color wheel with our powerful accessible tools.</p>
+        <a href="#" class="palette-button">Visit</a>
+    </div>
+</div>
+<div class="dev-tools-container">
+    <h1 class="dev-tools-title">Development Tools</h1>
+    <div class="dev-tools-grid">
+        <!-- Item 1 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/Python.png' %}" alt="Tool 1">
+            <h2>Python</h2>
+            <p>A high-level, interpreted programming language known for its readability and versatility across various applications.</p>
+        </div>
+        <!-- Item 2 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/Django.png' %}" alt="Tool 2">
+            <h2>Django</h2>
+            <p>A high-level Python web framework that encourages rapid development and clean, pragmatic design.</p>
+        </div>
+        <!-- Item 3 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/Anaconda.png' %}" alt="Tool 3">
+            <h2>Anaconda</h2>
+            <p>Python and R distribution for scientific computing, with package and environment management.</p>
+        </div>
+        <!-- Item 4 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/VScode.png' %}" alt="Tool 4">
+            <h2>VScode</h2>
+            <p>An open-source code editor, popular for its extensive plugin support and integrated development tools.</p>
+        </div>
+        <!-- Item 5 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/HTML.png' %}" alt="Tool 5">
+            <h2>Html</h2>
+            <p>The standard markup language used for creating and structuring content on the web.</p>
+        </div>
+        <!-- Item 6 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/CSS.png' %}" alt="Tool 6">
+            <h2>CSS</h2>
+            <p>A stylesheet language used to describe the presentation of a document.</p>
+        </div>
+        <!-- Item 7 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/JS.png' %}" alt="Tool 7">
+            <h2>JS</h2>
+            <p>A versatile scripting language used to create dynamic and interactive effects within web browsers.</p>
+        </div>
+        <!-- Item 8 -->
+        <div class="dev-tools-item">
+            <img src="{% static 'index/img/Figma.png' %}" alt="Tool 8">
+            <h2>Figma</h2>
+            <p>A collaborative interface design tool that allows multiple users to work on the same project in real-time.</p>
+        </div>
+    </div>
+</div>
+<div class="palette-footer">
+    <h2 class="footer-title">Fullstack Developement</h2>
+    <p class="footer-description">Consetetur erat clita consequat sit sea amet blandit et amet dolores. Diam lorem dolore consetetur est eirmod esse diam eirmod et. Dolor sea takimata amet erat aliquyam sed vel dolor et laoreet takimata lorem. Ea hendrerit dolore sea velit sadipscing et nonumy ullamcorper diam consetetur eirmod iriure diam nulla in stet sed mazim. Sea diam diam nonummy et aliquam sed sed voluptua adipiscing. Elitr et accusam diam duo dolor duo ea eros. Clita et dolores eos diam liber dolor no ut lorem dolor eirmod sanctus eum id sea. Molestie sit sit accusam dolores at invidunt dolor sanctus et tempor gubergren takimata consetetur gubergren et at ipsum. Wisi lorem magna.</p>
+</div>
+
+<div class="index-container">
+    <div class="index-title">
+        <h1><a href="#" class="cmscience">Learn Computer Science</a></h1>
+    </div>
+    <div class="index-content">
+        <p>Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn. Ses anecdotes de tournage, sa relation à la mode, son premier court-métrage en tant que réalisatrice... Sincère et spontanée, Laura Smet se confie en toute intimité à Vogue Paris, le 21 novembre dernier. Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn. Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn. Ses anecdotes de tournage, sa relation à la mode, son premier court-métrage en tant que réalisatrice... Sincère et spontanée, Laura Smet se confie en toute intimité à Vogue Paris, le 21 novembre dernier. Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn.</p>
+    </div>
+    <a href="#" class="index-read-more">Read More</a>
+    <hr class="divider">
+</div>
+
+<div class="index-container container1">
+    <div class="index-title">
+        <h1><a href="#" class="cmscience">Learn Quantum Computing</a></h1>
+    </div>
+    <div class="index-content">
+        <p>Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn. Ses anecdotes de tournage, sa relation à la mode, son premier court-métrage en tant que réalisatrice... Sincère et spontanée, Laura Smet se confie en toute intimité à Vogue Paris, le 21 novembre dernier. Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn. Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn. Ses anecdotes de tournage, sa relation à la mode, son premier court-métrage en tant que réalisatrice... Sincère et spontanée, Laura Smet se confie en toute intimité à Vogue Paris, le 21 novembre dernier. Elle est à l'affiche du film "Les Gardiennes" de Xavier Beauvois, dans lequel elle donne, pour la première fois au cinéma, la réplique à sa mère Natalie Bayn.</p>
+    </div>
+    <a href="#" class="index-read-more">Read More</a>
+    <hr class="divider">
+</div>
+
+{% endblock body%}
+<br>
+
+{% block footer %}
+{% endblock footer %}

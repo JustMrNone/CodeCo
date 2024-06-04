@@ -7,6 +7,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
+<script></script>
 {% endblock head %}s
 
 {% block header %}
@@ -14,12 +15,26 @@
 {% endblock header%}
 
 {% block body %}
-<div class="container">
+<div class="container conpro mt-5">
+    <!-- Search Form -->
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary mr-2" id="searchButton">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <input type="text" class="form-control" placeholder="Search by Title" id="searchTitle">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Card Grid -->
     <div class="row">
         <div class="col-md-4 mb-4">
-            <div class="card h-60">
+            <div class="card h-100" data-category="category1">
                 <img src="{% static 'settings/img/Sample.png' %}" class="card-img-top" alt="{{ product.name }}">
-
                 <div class="card-body">
                     <h5 class="card-title">Product name</h5>
                     <p class="card-text">Et kasd tempor erat lorem erat duo no congue ipsum takimata erat. Ut dolore sit dolore no tincidunt amet dolor et erat sed kasd aliquam sanctus sit laoreet.</p>
@@ -32,10 +47,9 @@
                 </div>
             </div>
         </div>
+        <!-- Repeat for more cards -->
     </div>
 </div>
-
-
 {% endblock body%}
 
 {% block footer %}

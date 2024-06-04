@@ -1,15 +1,29 @@
-.container{
+.container {
     margin-top: 150px;
 }
-.card{
+.conpro{
+    margin-top: 150px !important;
+}
+.card {
     height: 550px;
-    width: 300px;
+    width: 350px; /* Ensure card width is 100% within the col-md-4 */
 }
 
-.card-text{
+.card-text {
     height: 125px;
 }
 
-.card-img-top{
+.card-img-top {
     height: 300px;
+    object-fit: cover; /* Ensure the image fits well */
+}
+
+.form-inline .form-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-inline .form-control {
+    width: auto;
+    flex: 1; /* Make the input field take the remaining space */
 }

@@ -5,28 +5,18 @@ body{
   height: 1000px; /* Adjust this value as needed to extend beyond the viewport */
 }
 .card {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: #f7f1e3;
     border: none;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
-    background-color: rgba(81, 81, 229, 0.85);
+    background-color: #57606f;
     color: #fff;
     font-weight: bold;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-
-.btn-primary {
-    background-color: #5151E5;
-    border-color: #5151E5;
-}
-
-.btn-primary:hover {
-    background-color: #4141d5;
-    border-color: #4141d5;
 }
 
 .min-vh-100 {
@@ -35,6 +25,8 @@ body{
 
 .container {
     margin-top: 100px;
+    align-items: center;
+    text-align: center;
 }
 
 .spacer {
@@ -62,16 +54,6 @@ margin-bottom: 15px;
 text-align: center;
 }
 
-.btn-custom {
-background-color: #007bff;
-color: white;
-border: none;
-padding: 10px 20px;
-border-radius: 5px;
-}
-.btn-custom:hover {
-background-color: #0056b3;
-}
 .file-input-wrapper {
   margin-bottom: 15px;
   text-align: center;
@@ -92,27 +74,28 @@ background-color: #0056b3;
 .file-input-label {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: #487eb0;
+  color: #f5f6fa;
   border-radius: 5px;
   cursor: pointer;
 }
 .file-input-label:hover {
-  background-color: #0056b3;
+  background-color: #40739e;
+  color: #2f3640;
 }
 .file-input-text {
   margin-top: 10px;
   display: none;
 }
 .btn-custom {
-  background-color: #007bff;
-  color: white;
+  background-color: #487eb0;
+  color: #f5f6fa;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
 }
 .btn-custom:hover {
-  background-color: #0056b3;
+  background-color: #40739e;
 }
 
 .form-control-file{
@@ -124,8 +107,8 @@ input[type="file"]::-webkit-file-upload-button {
 input[type="file"]::before {
   content: 'Choose File';
   display: inline-block;
-  background-color: #007bff;
-  color: white;
+  background-color: #487eb0;
+  color: #f5f6fa;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -138,15 +121,73 @@ input[type="file"]::before {
 .asteriskField{
   display: none;
 }
-
-.pprofile-status{
-  margin-top: 100px;
+.profile-status .profile-info{
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;  /* Optional: Adjust width as needed */
 }
-input {
-  /* Disable autofocus */
-  caret-color: initial;
-  outline: initial;
+.profile-status{
+  margin-top: 0px;  /* Maintain the desired top margin */
 }
 .settingsh{
   color: #1e272e;
+}
+@media (max-width: 1100px) {
+  .profile-status .profile-info{
+    float: none;  /* Reset if necessary */
+    text-align: center;  /* Reset if necessary */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile-status {
+    float: none;  /* Reset if necessary */
+    text-align: center;  /* Reset if necessary */
+    margin-left: -75px;
+  }
+}
+
+@media (max-width: 500px) {
+  .profile-status .profile-info{
+    float: none;  /* Reset if necessary */
+    text-align: center;  /* Reset if necessary */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .profile-status {
+    float: none;  /* Reset if necessary */
+    text-align: center;  /* Reset if necessary */
+    margin-left: -95px;
+  }
+}
+
+.arrowdown{
+  margin-top: 3px;
+  float: right;
+  text-align: right;
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: #00a8ff;
+  font-size: 20px;
+  cursor: pointer;
+}
+.arrowdown:hover{
+  color: #0097e6;
+  transform: scale(1.3);
+
+}
+
+.form-control{
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  background-color: #f5f6fa;
+}
+
+.btnscontainer{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }

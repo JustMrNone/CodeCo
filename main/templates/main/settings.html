@@ -48,7 +48,7 @@
     {% endfor %}
 {% endif %}
 <div class="d-flex align-items-center justify-content-center min-vh-100">
-    <div class="container">
+    <div class="container settingscon">
             <div class="profile-status card mb-4 p-3 d-flex justify-content-center align-items-center">
                 <div class="profile-info text-center">
                     {% if user.profile.profile_picture %}
@@ -58,6 +58,7 @@
                     {% endif %}
                     <h4>{{ user.username }}</h4>
                     <p>{{ user.email }}</p>
+                    <hr>
                 </div>
             </div>
      
@@ -67,7 +68,7 @@
         
                 <div class="card mb-4">
                     <div class="card-header">
-                        Update Profile
+                        Update Profile  <i class="fas fa-arrow-down arrowdown" id="clickable-element"></i>
                     </div>
                     <div class="card-body">
                         <form method="post" action="{% url 'settings' %}" enctype="multipart/form-data">
@@ -79,16 +80,18 @@
                                 <span class="file-input-text">No file chosen</span>
                             </div>
                             <br>
-                            <label for="id_profile_picture" class="file-input-label">Choose Profile Picture</label>
-                            <div class="text-center">
-                                <button type="submit" name="update_profile" class="btn btn-custom">Save Changes</button>
-                            </div>
+                            <div class="btnscontainer">
+                                <label for="id_profile_picture" class="file-input-label">Choose Profile Picture</label>
+                                <div class="text-center savebtn">
+                                  <button type="submit" name="update_profile" class="btn btn-custom">Save Changes</button>
+                                </div>
+                              </div>
                         </form>
                     </div>
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
-                        Change Password
+                        Change Password  <i class="arrowdown fas fa-arrow-down"></i>
                     </div>
                     <div class="card-body">
                         <form method="post" action="{% url 'settings' %}">
@@ -108,28 +111,6 @@
     </div>
 </div>
 <script>
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-        // Remove autofocus attribute from all input fields
-        document.querySelectorAll('input').forEach(function(input) {
-            input.removeAttribute('autofocus');
-        });
-    
-        // Other scripts...
-        document.addEventListener('DOMContentLoaded', function() {
-            const fileInput = document.getElementById('id_profile_picture');
-            const fileInputText = document.querySelector('.file-input-text');
-      
-            fileInput.addEventListener('change', function() {
-                if (fileInput.files.length > 0) {
-                    fileInputText.textContent = fileInput.files[0].name;
-                } else {
-                    fileInputText.textContent = 'No file chosen';
-                }
-            });
-        });
-    });
 
 </script>
 {% endblock body %}

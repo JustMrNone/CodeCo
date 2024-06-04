@@ -89,3 +89,17 @@ nav.navdark {
 .dark-mode .requiredField{
   color: #f7f1e3 !important;
 }
+.dark-mode .profile-status{
+  background-color: #4b4b4b !important;
+  color: #f7f1e3 !important;
+  border: 1px solid #3d3d3d;
+}
+
+
+.dark-mode .card-body{
+  background-color: #4b4b4b !important;
+}
+
+.dark-mode .card-header{
+  background-color: #2C3A47 !important;
+}

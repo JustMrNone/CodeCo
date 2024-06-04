@@ -3,9 +3,14 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .models import Post, User
+from .models import Post, Profile, AccountSettings
 from .forms import RegisterForm
-
+from .forms import CustomAuthenticationForm
+from .forms import ProfileForm, AccountSettingsForm
+from django.contrib.auth.forms import PasswordChangeForm
+from .forms import ProfileForm, AccountSettingsForm, ChangePasswordForm
+from django.contrib.auth import update_session_auth_hash
+from django.contrib import messages
 # Create your views here.
 def index(request):
     return render(request, 'main/index.html')
@@ -42,9 +47,72 @@ def Products(request):
 def info(request):
     return render(request, 'main/info.html')
     
-def settings(request):
-    return render(request, 'main/settings.html')
 
+
+def settings(request):
+    user = request.user
+
+    # Ensure the user has a Profile and AccountSettings
+    if not hasattr(user, 'profile'):
+        Profile.objects.create(user=user)
+    if not hasattr(user, 'accountsettings'):
+        AccountSettings.objects.create(user=user)
+
+    if request.method == 'POST':
+        profile_form = ProfileForm(request.POST, request.FILES, instance=user.profile, user=user)
+        password_form = PasswordChangeForm(user, request.POST)
+        account_settings_form = AccountSettingsForm(request.POST, instance=user.accountsettings)
+
+        if 'update_profile' in request.POST and profile_form.is_valid():
+            user.username = profile_form.cleaned_data['username']
+            user.email = profile_form.cleaned_data['email']
+            user.save()
+            profile_form.save()
+            messages.success(request, 'Profile updated successfully.')
+            return redirect('settings')
+        if 'change_password' in request.POST and password_form.is_valid():
+            user = password_form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Password updated successfully.')
+            return redirect('settings')
+        if 'update_account_settings' in request.POST and account_settings_form.is_valid():
+            account_settings_form.save()
+            messages.success(request, 'Account settings updated successfully.')
+            return redirect('settings')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        profile_form = ProfileForm(instance=user.profile, user=user)
+        password_form = PasswordChangeForm(user)
+        account_settings_form = AccountSettingsForm(instance=user.accountsettings)
+
+    return render(request, 'main/settings.html', {
+        'profile_form': profile_form,
+        'password_form': password_form,
+        'account_settings_form': account_settings_form,
+    })
+    
+    
+def change_password(request):
+    if request.method == 'POST':
+        form = ChangePasswordForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important to keep the user logged in
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('change_password')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = ChangePasswordForm(request.user)
+    
+    # Render the settings page with the form, ensuring all other forms and content are included
+    return render(request, 'main/settings.html', {
+        'password_form': form,
+        'profile_form': ProfileForm(instance=request.user.profile),
+        'account_settings_form': AccountSettingsForm(instance=request.user.profile),
+    })
+    
 @login_required
 def profile(request):
     return render(request, 'main/profile.html')
@@ -74,9 +142,11 @@ def register(request):
         form = RegisterForm()
 
     return render(request, 'main/register.html', {'form': form})
+
+
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        form = CustomAuthenticationForm(request, data=request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
@@ -85,7 +155,7 @@ def login_view(request):
                 login(request, user)
                 return redirect('index')  # Redirect to home page after login
     else:
-        form = AuthenticationForm()
+        form = CustomAuthenticationForm()  # Use CustomAuthenticationForm here too
     return render(request, 'main/login.html', {'form': form})
 
 
@@ -93,3 +163,30 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('index')  # Redirect to home page or login page after logout
+
+
+@login_required
+def update_profile(request):
+    if request.method == 'POST':
+        profile_form = ProfileForm(request.POST, instance=request.user)
+        if profile_form.is_valid():
+            profile_form.save()
+            messages.success(request, 'Profile updated successfully.')
+        else:
+            for field, errors in profile_form.errors.items():
+                for error in errors:
+                    messages.error(request, f'{field.capitalize()}: {error}')
+    return redirect('settings')
+
+@login_required
+def update_account_settings(request):
+    if request.method == 'POST':
+        account_settings_form = AccountSettingsForm(request.POST, instance=request.user.accountsettings)
+        if account_settings_form.is_valid():
+            account_settings_form.save()
+            messages.success(request, 'Account settings updated successfully.')
+        else:
+            for field, errors in account_settings_form.errors.items():
+                for error in errors:
+                    messages.error(request, f'{field.capitalize()}: {error}')
+    return redirect('settings')

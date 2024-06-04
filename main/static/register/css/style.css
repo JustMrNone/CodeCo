@@ -1,7 +1,8 @@
-.card {
+.cardreg {
     border: none;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f7f1e3;
 }
 .btn-primary {
     background-color: #007bff;
@@ -17,4 +18,7 @@
 }
 .text-muted {
     font-size: 0.9rem;
+}
+.asteriskField{
+    display: none !important;
 }

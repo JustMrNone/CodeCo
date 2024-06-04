@@ -4,3 +4,146 @@ body{
 .spacer {
   height: 1000px; /* Adjust this value as needed to extend beyond the viewport */
 }
+.card {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: rgba(81, 81, 229, 0.85);
+    color: #fff;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #5151E5;
+    border-color: #5151E5;
+}
+
+.btn-primary:hover {
+    background-color: #4141d5;
+    border-color: #4141d5;
+}
+
+.min-vh-100 {
+    min-height: 100vh;
+}
+
+.container {
+    margin-top: 100px;
+}
+
+.spacer {
+    height: 100px; /* Adjust this value if needed for additional spacing */
+}
+
+.settingsh1{
+  color: #1e272e;
+}
+
+.errormessage {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
+  width: 80%;
+  max-width: 500px;
+}
+.errormessage .alert {
+  margin-bottom: 0;
+}
+.file-input-wrapper {
+margin-bottom: 15px;
+text-align: center;
+}
+
+.btn-custom {
+background-color: #007bff;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 5px;
+}
+.btn-custom:hover {
+background-color: #0056b3;
+}
+.file-input-wrapper {
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+  display: none;
+}
+.file-input-label {
+  display: block;
+  margin-bottom: 5px;
+  }
+.file-input-wrapper input[type="file"] {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.file-input-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.file-input-label:hover {
+  background-color: #0056b3;
+}
+.file-input-text {
+  margin-top: 10px;
+  display: none;
+}
+.btn-custom {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.btn-custom:hover {
+  background-color: #0056b3;
+}
+
+.form-control-file{
+  display: none;
+}
+input[type="file"]::-webkit-file-upload-button {
+  visibility: hidden;
+}
+input[type="file"]::before {
+  content: 'Choose File';
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-text{
+  display: none;
+}
+
+.asteriskField{
+  display: none;
+}
+
+.pprofile-status{
+  margin-top: 100px;
+}
+input {
+  /* Disable autofocus */
+  caret-color: initial;
+  outline: initial;
+}

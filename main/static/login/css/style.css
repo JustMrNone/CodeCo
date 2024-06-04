@@ -18,3 +18,9 @@
 .text-muted {
     font-size: 0.9rem;
 }
+.cardlogin{
+    background-color: #f7f1e3;
+}
+.asteriskField{
+    display: none !important;
+}

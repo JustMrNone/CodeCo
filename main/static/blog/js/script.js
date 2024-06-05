@@ -1,18 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    let searchType = 'title';
+    let searchType = 'title'; // Default search option
 
     window.setSearchOption = function(option) {
-        document.getElementById('searchOption').textContent = option;
-        searchType = option.toLowerCase().includes('title') ? 'title' : 'category';
+        const searchOptionButton = document.getElementById('searchOption');
+        searchOptionButton.textContent = option;
+
+        if (option === 'Search by Title') {
+            searchType = 'title';
+        } else if (option === 'Search by Category') {
+            searchType = 'category';
+        } else if (option === 'Search by Word') {
+            searchType = 'word';
+        }
     }
 
     window.performSearch = function() {
-        const searchTerm = document.getElementById('searchInput').value;
-        if (searchTerm) {
-            alert(`Searching for ${searchTerm} in ${searchType}`);
-            // Here you can add your search logic, e.g., making an API call or redirecting to another page
+        const searchInput = document.getElementById('searchInput').value;
+        if (searchInput) {
+            const searchForm = document.getElementById('searchForm');
+            searchForm.querySelector('input[name="option"]').value = searchType;
+            searchForm.querySelector('input[name="query"]').value = searchInput;
+            searchForm.submit();
         } else {
-            alert('Please enter a search term');
+            document.getElementById('searchMessage').textContent = 'Please enter a search term';
         }
     }
 

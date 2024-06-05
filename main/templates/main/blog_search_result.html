@@ -1,4 +1,4 @@
-{% extends "main/layout.html" %} 
+{% extends "main/layout.html" %}
 {% load static %}
 <!-- This allows child templates to override or extend these sections with their own content -->
 {% block title %}
@@ -6,16 +6,32 @@
 {% endblock title %} 
 
 {% block head %}
-
+<link rel="stylesheet" href="{% static 'blogsearch/css/style.css' %}">
 {% endblock head %}
 
 {% block header %}
 
-{% endblock header%}
+{% endblock header %}
 
 {% block body %}
-
-{% endblock body%}
+<div class="container custom-margin-top">
+    <h2 class="searchre">{{ message }}</h2>
+    <div class="row">
+        {% for post in results %}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="{{ post.image.url }}" class="card-img-top" alt="{{ post.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.content|truncatewords:20 }}</p>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock body %}
 
 {% block footer %}
 

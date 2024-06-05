@@ -11,6 +11,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from .forms import ProfileForm, AccountSettingsForm, ChangePasswordForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
+from django.db.models import Q
 # Create your views here.
 def index(request):
     return render(request, 'main/index.html')
@@ -190,3 +191,28 @@ def update_account_settings(request):
                 for error in errors:
                     messages.error(request, f'{field.capitalize()}: {error}')
     return redirect('settings')
+
+
+def blog_search(request):
+    option = request.GET.get('option', 'title')
+    query = request.GET.get('query', '')
+    results = []
+
+    if query:
+        if option == 'title':
+            results = Post.objects.filter(title__icontains=query)
+        elif option == 'category':
+            results = Post.objects.filter(categories__name__icontains=query)
+        elif option == 'word':
+            results = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains(query)))
+        message = f'Search result for "{query}" in {option}'
+    else:
+        message = 'Please enter a search term'
+
+    context = {
+        'results': results,
+        'message': message,
+        'query': query,
+        'option': option
+    }
+    return render(request, 'main/blog_search_result.html', context)

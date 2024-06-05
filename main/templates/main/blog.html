@@ -21,20 +21,25 @@
 <div class="container mt-5 custom-margin">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="searchOption">Title</button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Title')">Title</a>
-                        <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Category')">Category</a>
-                        <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Category')">Word</a>
+            <form id="searchForm" action="/search/" method="GET">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="searchOption">Title</button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Title')">Title</a>
+                            <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Category')">Category</a>
+                            <a class="dropdown-item" href="#" onclick="setSearchOption('Search by Word')">Word</a>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Enter your search term" aria-label="Search term" id="searchInput">
+                    <input type="hidden" name="option" value="title">
+                    <input type="hidden" name="query" value="">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary searchbutton" type="button" onclick="performSearch()">Search</button>
                     </div>
                 </div>
-                <input type="text" class="form-control" placeholder="Enter your search term" aria-label="Search term" id="searchInput">
-                <div class="input-group-append">
-                    <button class="btn btn-primary searchbutton" type="button" onclick="performSearch()">Search</button>
-                </div>
-            </div>
+            </form>
+            <div id="searchMessage" class="text-danger"></div>
         </div>
     </div>
 </div>

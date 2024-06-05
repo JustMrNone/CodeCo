@@ -16,6 +16,8 @@ urlpatterns = [
     path('search/', views.blog_search, name='search'),
     path('update_profile/', views.update_profile, name='update_profile'),
     path('update_account_settings/', views.update_account_settings, name='update_account_settings'),
-    path('change_password/', views.change_password, name='change_password')
+    path('change_password/', views.change_password, name='change_password'),
+    path('product/<int:pk>/', views.ProductDetail, name='product_detail'),
+    path('product/search/', views.product_search, name='product_search'),
     
 ]

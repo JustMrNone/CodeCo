@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .models import Post, Profile, AccountSettings
+from .models import Post, Profile, AccountSettings, Product
 from .forms import RegisterForm
 from .forms import CustomAuthenticationForm
 from .forms import ProfileForm, AccountSettingsForm
@@ -43,7 +43,21 @@ def blogpost(request, slug):
 
 
 def Products(request):
-    return render(request, 'main/Products.html')
+    products = Product.objects.all()
+    return render(request, 'main/Products.html', {'products': products})
+
+def ProductDetail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, 'main/product.html', {'product': product})
+
+
+def product_search(request):
+    query = request.GET.get('searchTitle', '')
+    if query:
+        products = Product.objects.filter(title__icontains=query)
+    else:
+        products = Product.objects.all()
+    return render(request, 'main/product_search_result.html', {'products': products, 'query': query})
 
 def info(request):
     return render(request, 'main/info.html')

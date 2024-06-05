@@ -1,30 +1,30 @@
-{% extends "main/layout.html" %} 
+{% extends "main/layout.html" %}
 {% load static %}
 <!-- This allows child templates to override or extend these sections with their own content -->
 {% block title %}
     Products
-{% endblock title %} 
+{% endblock title %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'products/css/style.css' %}">
 <script></script>
-{% endblock head %}s
+{% endblock head %}
 
 {% block header %}
 
-{% endblock header%}
+{% endblock header %}
 
 {% block body %}
 <div class="container conpro mt-5">
     <!-- Search Form -->
     <div class="row mb-4">
         <div class="col-md-12">
-            <form class="form-inline">
+            <form class="form-inline" method="GET" action="{% url 'product_search' %}">
                 <div class="form-group">
-                    <button type="button" class="btn btn-primary mr-2" id="searchButton">
+                    <button type="submit" class="btn btn-primary mr-2" id="searchButton">
                         <i class="fas fa-search"></i>
                     </button>
-                    <input type="text" class="form-control" placeholder="Search by Title" id="searchTitle">
+                    <input type="text" class="form-control" placeholder="Search by Title" id="searchTitle" name="searchTitle">
                 </div>
             </form>
         </div>
@@ -32,25 +32,30 @@
 
     <!-- Card Grid -->
     <div class="row">
+        {% for product in products %}
         <div class="col-md-4 mb-4">
-            <div class="card h-100" data-category="category1">
-                <img src="{% static 'settings/img/Sample.png' %}" class="card-img-top" alt="{{ product.name }}">
+            <div class="card h-100" data-category="{{ product.category }}">
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+                </a>
                 <div class="card-body">
-                    <h5 class="card-title">Product name</h5>
-                    <p class="card-text">Et kasd tempor erat lorem erat duo no congue ipsum takimata erat. Ut dolore sit dolore no tincidunt amet dolor et erat sed kasd aliquam sanctus sit laoreet.</p>
+                    <h5 class="card-title">
+                        <a href="{% url 'product_detail' product.id %}">{{ product.title }}</a>
+                    </h5>
+                    <p class="card-text">{{ product.description|truncatechars:180 }}</p>
                     <div class="d-flex justify-content-between align-items-center">
                         <a href="#" class="btn btn-primary">
                             <i class="fas fa-plus"></i> Add to Cart
                         </a>
-                        <span class="price">$10</span>
+                        <span class="price">${{ product.price }}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Repeat for more cards -->
+        {% endfor %}
     </div>
 </div>
-{% endblock body%}
+{% endblock body %}
 
 {% block footer %}
 

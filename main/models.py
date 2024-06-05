@@ -112,3 +112,21 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
     instance.profile.save()
+    
+
+
+class Product(models.Model):
+    title = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='product_images/', default='settings/img/Sample.png')
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    category = models.CharField(max_length=50)
+    description = models.TextField()
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Product, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.title

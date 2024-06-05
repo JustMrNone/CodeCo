@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Category, Tag, Comment
+from .models import Post, Category, Tag, Comment, Product
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'published_date', 'updated_date')
@@ -28,7 +28,15 @@ class CommentAdmin(admin.ModelAdmin):
     def approve_comments(self, request, queryset):
         queryset.update(active=True)
 
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('title', 'price', 'category')
+    list_filter = ('category',)
+    search_fields = ('title', 'category')
+    prepopulated_fields = {'slug': ('title',)}
+
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Product, ProductAdmin)

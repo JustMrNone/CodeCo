@@ -39,7 +39,8 @@ urlpatterns = [
     path('qrcode', views.generate_qr_code, name='qrcode'),
     path('pomodoro', views.pomodoro, name='pomodoro'),
     path('loremipsum', views.loremipsum, name='loremipsum'),
-    path('markdown', views.markdown, name='markdown'),
+    path('iplocator', views.iploc, name='iplocator'),
+    path('regextester', views.regextester, name='regextester'),
     path('passwordgenerator', views.passgen, name='passwordgenerator'),
     
 

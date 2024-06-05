@@ -338,9 +338,11 @@ def stopwatch(request):
 def loremipsum(request):
     return render(request, 'main/tools/loremipsum.html')
 
-def markdown(request):
-    return render(request, 'main/tools/markdown.html')
+def iploc(request):
+    return render(request, 'main/tools/iploc.html')
 
+def regextester(request):
+    return render(request, 'main/tools/regextester.html')
 
 
 def generate_qr_code(request):

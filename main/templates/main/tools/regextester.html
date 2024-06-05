@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex Tester</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'tools/css/regextester.css'%}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Regex Tester</h1>
+        
+        <div class="card">
+            <div class="card-header">
+                Test Your Regex Pattern
+            </div>
+            <div class="card-body">
+                <form id="regex-form">
+                    <div class="form-group">
+                        <label for="regex-pattern">Regex Pattern:</label>
+                        <input type="text" id="regex-pattern" class="form-control" placeholder="Enter your regex pattern" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="test-string">Test String:</label>
+                        <textarea id="test-string" class="form-control" rows="5" placeholder="Enter the test string" required></textarea>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="case-insensitive">
+                        <label class="form-check-label" for="case-insensitive">Case Insensitive</label>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="global-search">
+                        <label class="form-check-label" for="global-search">Global Search</label>
+                    </div>
+
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="multi-line">
+                        <label class="form-check-label" for="multi-line">Multi-line</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Test Regex</button>
+                </form>
+
+                <div class="mt-4">
+                    <label for="regex-results">Results:</label>
+                    <textarea id="regex-results" class="form-control" rows="5" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'tools/js/regextester.js'%}"></script>
+</body>
+</html>

@@ -106,3 +106,13 @@ nav.navdark {
 .dark-mode .card-header{
   background-color: #2C3A47 !important;
 }
+.dark-mode .item-details{
+  color: #f7f1e3;
+}
+
+.dark-mode .item-price{
+  color: #f7f1e3;
+}
+.dark-mode .item-total{
+  color: #f7f1e3;
+}

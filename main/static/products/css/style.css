@@ -1,5 +1,5 @@
 .container {
-    margin-top: 150px;
+    margin-top: 250px;
 }
 .conpro{
     margin-top: 150px !important;
@@ -26,4 +26,37 @@
 .form-inline .form-control {
     width: auto;
     flex: 1; /* Make the input field take the remaining space */
+}
+.pagination{
+    color: #1e272e !important;
+}
+.current{
+    color: #1e272e !important;
+}
+.pagination {
+    margin: 20px 0;
+}
+
+.page-item .page-link {
+    color: #007bff;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+.card-wrapper {
+    margin-right: auto;
+    
+}
+
+@media (max-width: 767px) {
+    .card-wrapper {
+        margin-left: 100px; /* Adjust this value as needed */
+    }
 }

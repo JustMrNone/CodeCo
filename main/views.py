@@ -21,32 +21,28 @@ def blog(request):
     post_list = Post.objects.all()
     paginator = Paginator(post_list, 5)
     
-    page = request.GET.get('page')
-    
+    page_number = request.GET.get('page')
     try:
-        posts = paginator.page(page)
-    
+        posts = paginator.page(page_number)
     except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
         posts = paginator.page(1)
     except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
         posts = paginator.page(paginator.num_pages)
-  
     
-    return render(request, 'main/blog.html', {
-        'posts': posts
-    })
-
+    return render(request, 'main/blog.html', {'posts': posts, 'page_obj': posts})
 def blogpost(request, slug):
     post = get_object_or_404(Post, slug=slug)
     return render(request, 'main/blogpost.html', {'post': post})
 
 
 def Products(request):
-    products = Product.objects.all()
-    return render(request, 'main/Products.html', {'products': products})
+    product_list = Product.objects.all()
+    paginator = Paginator(product_list, 12)  # Show 10 products per page
 
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'main/Products.html', {'page_obj': page_obj})
 def ProductDetail(request, pk):
     product = get_object_or_404(Product, pk=pk)
     return render(request, 'main/product.html', {'product': product})
@@ -274,3 +270,38 @@ def update_cart_item(request):
             return JsonResponse({'success': True, 'message': 'Cart item removed successfully'})
 
     return JsonResponse({'success': False, 'message': 'Invalid request method'})
+
+
+def checkout(request):
+    try:
+        cart = Cart.objects.get(user=request.user)
+        cart_items = CartItem.objects.filter(cart=cart)
+        cart_total = sum(item.product.price * item.quantity for item in cart_items)
+    except Cart.DoesNotExist:
+        cart_items = []
+        cart_total = 0.0
+
+    return render(request, 'main/checkout.html', {
+        'cart_items': cart_items,
+        'cart_total': cart_total
+    })
+
+def finalize_order(request):
+    if request.method == 'POST':
+        # Handle order finalization logic here
+        try:
+            cart = Cart.objects.get(user=request.user)
+            # Logic to create an Order and move items
+            CartItem.objects.filter(cart=cart).delete()  # Clear cart
+        except Cart.DoesNotExist:
+            pass
+        return redirect('order_success')
+    return redirect('checkout')
+
+def order_success(request):
+    return render(request, 'main/order_success.html')
+
+
+def product_list(request):
+    products = Product.objects.all()
+    return render(request, 'product_list.html', {'products': products})

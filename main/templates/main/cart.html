@@ -15,12 +15,13 @@
 
 {% block body %}
 <div class="container cart-container mt-5">
+    {% if cart.cartitem_set.all %}
     <div class="cart-header">
-        <div class="item-details">Product</div>
-        <div class="item-price">Price</div>
-        <div class="item-quantity">Quantity</div>
-        <div class="item-total">Total</div>
-        <div class="item-delete">Remove</div>
+        <div class="item-details"><p>Product</p></div>
+        <div class="item-price"><p>Price</p></div>
+        <div class="item-quantity"><p>Quantity</p></div>
+        <div class="item-total"><p>Total</p></div>
+        <div class="item-delete"><p>Remove</p></div>
     </div>
     <!-- Cart Items -->
     {% for item in cart.cartitem_set.all %}
@@ -45,8 +46,11 @@
     <!-- Cart Summary -->
     <div class="cart-summary">
         <h4>Total: ${{ cart.total_price }}</h4>
-        <a href="#" class="btn btn-primary">Checkout</a>
+        <a href="{% url 'checkout' %}" class="btn btn-primary">Checkout</a>
     </div>
+    {% else %}
+    <p>Your cart is empty.</p>
+    {% endif %}
 </div>
 {% endblock body %}
 

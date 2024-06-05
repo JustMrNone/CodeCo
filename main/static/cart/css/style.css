@@ -1,3 +1,6 @@
+body{
+    min-height: 110vh;
+}
 .cart-container {
     margin-top: 250px !important;
     color: #1e272e;

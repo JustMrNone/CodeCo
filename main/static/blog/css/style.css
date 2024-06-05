@@ -171,3 +171,27 @@ body{
         height: auto;
     }
 }
+
+.pagination{
+    color: #1e272e !important;
+}
+.current{
+    color: #1e272e !important;
+}
+.pagination {
+    margin: 20px 0;
+}
+
+.page-item .page-link {
+    color: #007bff;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}

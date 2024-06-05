@@ -56,8 +56,8 @@ def product_search(request):
         products = Product.objects.all()
     return render(request, 'main/product_search_result.html', {'products': products, 'query': query})
 
-def info(request):
-    return render(request, 'main/info.html')
+def tools(request):
+    return render(request, 'main/tools.html')
     
 
 

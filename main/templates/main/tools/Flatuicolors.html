@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Grid</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .color-box {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+        }
+        .color-name {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 12px;
+        }
+        .copy-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            font-size: 16px;
+            background: rgba(0,0,0,0.7);
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <!-- Color Boxes -->
+        <div class="color-box" style="background-color: #2c3e50;" data-color="#2c3e50" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2c3e50</span>
+        </div>
+        <div class="color-box" style="background-color: #8e44ad;" data-color="#8e44ad" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#8e44ad</span>
+        </div>
+        <div class="color-box" style="background-color: #2980b9;" data-color="#2980b9" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2980b9</span>
+        </div>
+        <div class="color-box" style="background-color: #27ae60;" data-color="#27ae60" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#27ae60</span>
+        </div>
+        <div class="color-box" style="background-color: #16a085;" data-color="#16a085" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#16a085</span>
+        </div>
+        <div class="color-box" style="background-color: #34495e;" data-color="#34495e" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#34495e</span>
+        </div>
+        <div class="color-box" style="background-color: #9b59b6;" data-color="#9b59b6" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#9b59b6</span>
+        </div>
+        <div class="color-box" style="background-color: #3498db;" data-color="#3498db" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3498db</span>
+        </div>
+        <div class="color-box" style="background-color: #2ecc71;" data-color="#2ecc71" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2ecc71</span>
+        </div>
+        <div class="color-box" style="background-color: #1abc9c;" data-color="#1abc9c" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#1abc9c</span>
+        </div>
+        <div class="color-box" style="background-color: #7f8c8d;" data-color="#7f8c8d" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#7f8c8d</span>
+        </div>
+        <div class="color-box" style="background-color: #bdc3c7;" data-color="#bdc3c7" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#bdc3c7</span>
+        </div>
+        <div class="color-box" style="background-color: #c0392b;" data-color="#c0392b" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#c0392b</span>
+        </div>
+        <div class="color-box" style="background-color: #d35400;" data-color="#d35400" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#d35400</span>
+        </div>
+        <div class="color-box" style="background-color: #f39c12;" data-color="#f39c12" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f39c12</span>
+        </div>
+        <div class="color-box" style="background-color: #95a5a6;" data-color="#95a5a6" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#95a5a6</span>
+        </div>
+        <div class="color-box" style="background-color: #ecf0f1;" data-color="#ecf0f1" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ecf0f1</span>
+        </div>
+        <div class="color-box" style="background-color: #e74c3c;" data-color="#e74c3c" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#e74c3c</span>
+        </div>
+        <div class="color-box" style="background-color: #e67e22;" data-color="#e67e22" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#e67e22</span>
+        </div>
+        <div class="color-box" style="background-color: #f1c40f;" data-color="#f1c40f" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f1c40f</span>
+        </div>
+        <div class="color-box" style="background-color: #079992;" data-color="#079992" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#079992</span>
+        </div>
+        <div class="color-box" style="background-color: #0a3d62;" data-color="#0a3d62" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#0a3d62</span>
+        </div>
+        <div class="color-box" style="background-color: #0c2461;" data-color="#0c2461" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#0c2461</span>
+        </div>
+        <div class="color-box" style="background-color: #b71540;" data-color="#b71540" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#b71540</span>
+        </div>
+        <div class="color-box" style="background-color: #e58e26;" data-color="#e58e26" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#e58e26</span>
+        </div>
+        <div class="color-box" style="background-color: #38ada9;" data-color="#38ada9" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#38ada9</span>
+        </div>
+        <div class="color-box" style="background-color: #3c6382;" data-color="#3c6382" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3c6382</span>
+        </div>
+        <div class="color-box" style="background-color: #1e3799;" data-color="#1e3799" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#1e3799</span>
+        </div>
+        <div class="color-box" style="background-color: #eb2f06;" data-color="#eb2f06" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#eb2f06</span>
+        </div>
+        <div class="color-box" style="background-color: #fa983a;" data-color="#fa983a" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fa983a</span>
+        </div>
+        <div class="color-box" style="background-color: #78e08f;" data-color="#78e08f" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#78e08f</span>
+        </div>
+        <div class="color-box" style="background-color: #60a3bc;" data-color="#60a3bc" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#60a3bc</span>
+        </div>
+        <div class="color-box" style="background-color: #4a69bd;" data-color="#4a69bd" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#4a69bd</span>
+        </div>
+        <div class="color-box" style="background-color: #e55039;" data-color="#e55039" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#e55039</span>
+        </div>
+        <div class="color-box" style="background-color: #f6b93b;" data-color="#f6b93b" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f6b93b</span>
+        </div>
+        <div class="color-box" style="background-color: #b8e994;" data-color="#b8e994" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#b8e994</span>
+        </div>
+        <div class="color-box" style="background-color: #82ccdd;" data-color="#82ccdd" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#82ccdd</span>
+        </div>
+        <div class="color-box" style="background-color: #6a89cc;" data-color="#6a89cc" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#6a89cc</span>
+        </div>
+        <div class="color-box" style="background-color: #f8c291;" data-color="#f8c291" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f8c291</span>
+        </div>
+        <div class="color-box" style="background-color: #fad390;" data-color="#fad390" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fad390</span>
+        </div>
+        <div class="color-box" style="background-color: #2980b9;" data-color="#2980b9" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2980b9</span>
+        </div>
+        <div class="color-box" style="background-color: #7f8c8d;" data-color="#7f8c8d" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#7f8c8d</span>
+        </div>
+        <div class="color-box" style="background-color: #bdc3c7;" data-color="#bdc3c7" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#bdc3c7</span>
+        </div>
+        <div class="color-box" style="background-color: #c0392b;" data-color="#c0392b" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#c0392b</span>
+        </div>
+        <div class="color-box" style="background-color: #d35400;" data-color="#d35400" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#d35400</span>
+        </div>
+        <div class="color-box" style="background-color: #706fd3;" data-color="#706fd3" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#706fd3</span>
+        </div>
+        <div class="color-box" style="background-color: #474787;" data-color="#474787" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#474787</span>
+        </div>
+        <div class="color-box" style="background-color: #ff793f;" data-color="#ff793f" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff793f</span>
+        </div>
+        <div class="color-box" style="background-color: #cd6133;" data-color="#cd6133" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#cd6133</span>
+        </div>
+        <div class="color-box" style="background-color: #40407a;" data-color="#40407a" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#40407a</span>
+        </div>
+        <div class="color-box" style="background-color: #2c2c54;" data-color="#2c2c54" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2c2c54</span>
+        </div>
+        <div class="color-box" style="background-color: #ff5252;" data-color="#ff5252" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff5252</span>
+        </div>
+        <div class="color-box" style="background-color: #33d9b2;" data-color="#33d9b2" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#33d9b2</span>
+        </div>
+        <div class="color-box" style="background-color: #218c74;" data-color="#218c74" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#218c74</span>
+        </div>
+        <div class="color-box" style="background-color: #ffda79;" data-color="#ffda79" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffda79</span>
+        </div>
+        <div class="color-box" style="background-color: #ccae62;" data-color="#ccae62" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ccae62</span>
+        </div>
+        <div class="color-box" style="background-color: #cc8e35;" data-color="#cc8e35" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#cc8e35</span>
+        </div>
+        <div class="color-box" style="background-color: #ffb142;" data-color="#ffb142" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffb142</span>
+        </div>
+        <div class="color-box" style="background-color: #227093;" data-color="#227093" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#227093</span>
+        </div>
+        <div class="color-box" style="background-color: #34ace0;" data-color="#34ace0" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#34ace0</span>
+        </div>
+        <div class="color-box" style="background-color: #84817a;" data-color="#84817a" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#84817a</span>
+        </div>
+        <div class="color-box" style="background-color: #d1ccc0;" data-color="#d1ccc0" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#d1ccc0</span>
+        </div>
+        <div class="color-box" style="background-color: #aaa69d;" data-color="#aaa69d" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#aaa69d</span>
+        </div>
+        <div class="color-box" style="background-color: #f7f1e3;" data-color="#f7f1e3" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f7f1e3</span>
+        </div>
+        <div class="color-box" style="background-color: #706fd3;" data-color="#706fd3" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#706fd3</span>
+        </div>
+        <div class="color-box" style="background-color: #474787;" data-color="#474787" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#474787</span>
+        </div>
+        <div class="color-box" style="background-color: #ff793f;" data-color="#ff793f" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff793f</span>
+        </div>
+        <div class="color-box" style="background-color: #cd6133;" data-color="#cd6133" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#cd6133</span>
+        </div>
+        <div class="color-box" style="background-color: #575fcf;" data-color="#575fcf" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#575fcf</span>
+        </div>
+        <div class="color-box" style="background-color: #3c40c6;" data-color="#3c40c6" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3c40c6</span>
+        </div>
+        <div class="color-box" style="background-color: #ffdd59;" data-color="#ffdd59" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffdd59</span>
+        </div>
+        <div class="color-box" style="background-color: #ffd32a;" data-color="#ffd32a" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffd32a</span>
+        </div>
+        <div class="color-box" style="background-color: #ffa801;" data-color="#ffa801" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffa801</span>
+        </div>
+        <div class="color-box" style="background-color: #ffc048;" data-color="#ffc048" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffc048</span>
+        </div>
+        <div class="color-box" style="background-color: #f53b57;" data-color="#f53b57" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f53b57</span>
+        </div>
+        <div class="color-box" style="background-color: #ef5777;" data-color="#ef5777" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ef5777</span>
+        </div>
+        <div class="color-box" style="background-color: #33d9b2;" data-color="#33d9b2" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#33d9b2</span>
+        </div>
+        <div class="color-box" style="background-color: #218c74;" data-color="#218c74" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#218c74</span>
+        </div>
+        <div class="color-box" style="background-color: #218c74;" data-color="#218c74" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#218c74</span>
+        </div>
+        <div class="color-box" style="background-color: #1e272e;" data-color="#1e272e" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#1e272e</span>
+        </div>
+        <div class="color-box" style="background-color: #485460;" data-color="#485460" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#485460</span>
+        </div>
+        <div class="color-box" style="background-color: #05c46b;" data-color="#05c46b" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#05c46b</span>
+        </div>
+        <div class="color-box" style="background-color: #0be881;" data-color="#0be881" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#0be881</span>
+        </div>
+        <div class="color-box" style="background-color: #34e7e4;" data-color="#34e7e4" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#34e7e4</span>
+        </div>
+        <div class="color-box" style="background-color: #00d8d6;" data-color="#00d8d6" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#00d8d6</span>
+        </div>
+        <div class="color-box" style="background-color: #d2dae2;" data-color="#d2dae2" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#d2dae2</span>
+        </div>
+        <div class="color-box" style="background-color: #808e9b;" data-color="#808e9b" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#808e9b</span>
+        </div>
+        <div class="color-box" style="background-color: #ff3f34;" data-color="#ff3f34" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff3f34</span>
+        </div>
+        <div class="color-box" style="background-color: #ff5e57;" data-color="#ff5e57" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff5e57</span>
+        </div>
+        <div class="color-box" style="background-color: #0fbcf9;" data-color="#0fbcf9" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#0fbcf9</span>
+        </div>
+        <div class="color-box" style="background-color: #4bcffa;" data-color="#4bcffa" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#4bcffa</span>
+        </div>
+        <div class="color-box" style="background-color: #cd84f1;" data-color="#cd84f1" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#cd84f1</span>
+        </div>
+        <div class="color-box" style="background-color: #ffcccc;" data-color="#ffcccc" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffcccc</span>
+        </div>
+        <div class="color-box" style="background-color: #ff4d4d;" data-color="#ff4d4d" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff4d4d</span>
+        </div>
+        <div class="color-box" style="background-color: #ffaf40;" data-color="#ffaf40" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffaf40</span>
+        </div>
+        <div class="color-box" style="background-color: #fffa65;" data-color="#fffa65" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fffa65</span>
+        </div>
+        <div class="color-box" style="background-color: #fff200;" data-color="#fff200" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fff200</span>
+        </div>
+        <div class="color-box" style="background-color: #ff9f1a;" data-color="#ff9f1a" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff9f1a</span>
+        </div>
+        <div class="color-box" style="background-color: #ff3838;" data-color="#ff3838" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff3838</span>
+        </div>
+        <div class="color-box" style="background-color: #ffb8b8;" data-color="#ffb8b8" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffb8b8</span>
+        </div>
+        <div class="color-box" style="background-color: #c56cf0;" data-color="#c56cf0" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#c56cf0</span>
+        </div>
+        <div class="color-box" style="background-color: #32ff7e;" data-color="#32ff7e" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#32ff7e</span>
+        </div>
+        <div class="color-box" style="background-color: #7efff5;" data-color="#7efff5" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#7efff5</span>
+        </div>
+        <div class="color-box" style="background-color: #18dcff;" data-color="#18dcff" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#18dcff</span>
+        </div>
+        <div class="color-box" style="background-color: #7d5fff;" data-color="#7d5fff" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#7d5fff</span>
+        </div>
+        <div class="color-box" style="background-color: #4b4b4b;" data-color="#4b4b4b" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#4b4b4b</span>
+        </div>
+        <div class="color-box" style="background-color: #3d3d3d;" data-color="#3d3d3d" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3d3d3d</span>
+        </div>
+        <div class="color-box" style="background-color: #7158e2;" data-color="#7158e2" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#7158e2</span>
+        </div>
+        <div class="color-box" style="background-color: #17c0eb;" data-color="#17c0eb" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#17c0eb</span>
+        </div>
+        <div class="color-box" style="background-color: #67e6dc;" data-color="#67e6dc" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#67e6dc</span>
+        </div>
+        <div class="color-box" style="background-color: #3ae374;" data-color="#3ae374" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3ae374</span>
+        </div>
+        <div class="color-box" style="background-color: #2bcbba;" data-color="#2bcbba" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2bcbba</span>
+        </div>
+        <div class="color-box" style="background-color: #2bcbba;" data-color="#2bcbba" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2bcbba</span>
+        </div>
+        <div class="color-box" style="background-color: #0fb9b1;" data-color="#0fb9b1" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#0fb9b1</span>
+        </div>
+        <div class="color-box" style="background-color: #778ca3;" data-color="#778ca3" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#778ca3</span>
+        </div>
+        <div class="color-box" style="background-color: #4b6584;" data-color="#4b6584" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#4b6584</span>
+        </div>
+        <div class="color-box" style="background-color: #a5b1c2;" data-color="#a5b1c2" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#a5b1c2</span>
+        </div>
+        <div class="color-box" style="background-color: #d1d8e0;" data-color="#d1d8e0" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#d1d8e0</span>
+        </div>
+        <div class="color-box" style="background-color: #20bf6b;" data-color="#20bf6b" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#20bf6b</span>
+        </div>
+        <div class="color-box" style="background-color: #0fb9b1;" data-color="#0fb9b1" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#0fb9b1</span>
+        </div>
+        <div class="color-box" style="background-color: #26de81;" data-color="#26de81" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#26de81</span>
+        </div>
+        <div class="color-box" style="background-color: #8854d0;" data-color="#8854d0" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#8854d0</span>
+        </div>
+        <div class="color-box" style="background-color: #a55eea;" data-color="#a55eea" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#a55eea</span>
+        </div>
+        <div class="color-box" style="background-color: #f7b731;" data-color="#f7b731" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f7b731</span>
+        </div>
+        <div class="color-box" style="background-color: #fed330;" data-color="#fed330" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fed330</span>
+        </div>
+        <div class="color-box" style="background-color: #fd9644;" data-color="#fd9644" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fd9644</span>
+        </div>
+        <div class="color-box" style="background-color: #fa8231;" data-color="#fa8231" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fa8231</span>
+        </div>
+        <div class="color-box" style="background-color: #4b7bec;" data-color="#4b7bec" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#4b7bec</span>
+        </div>
+        <div class="color-box" style="background-color: #3867d6;" data-color="#3867d6" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3867d6</span>
+        </div>
+        <div class="color-box" style="background-color: #2d98da;" data-color="#2d98da" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2d98da</span>
+        </div>
+        <div class="color-box" style="background-color: #45aaf2;" data-color="#45aaf2" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#45aaf2</span>
+        </div>
+        <div class="color-box" style="background-color: #eb3b5a;" data-color="#eb3b5a" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#eb3b5a</span>
+        </div>
+        <div class="color-box" style="background-color: #fc5c65;" data-color="#fc5c65" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#fc5c65</span>
+        </div>
+        <div class="color-box" style="background-color: #82589F;" data-color="#82589F" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#82589F</span>
+        </div>
+        <div class="color-box" style="background-color: #D6A2E8;" data-color="#D6A2E8" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#D6A2E8</span>
+        </div>
+        <div class="color-box" style="background-color: #2C3A47;" data-color="#2C3A47" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2C3A47</span>
+        </div>
+        <div class="color-box" style="background-color: #CAD3C8;" data-color="#CAD3C8" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#CAD3C8</span>
+        </div>
+        <div class="color-box" style="background-color: #55E6C1;" data-color="#55E6C1" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#55E6C1</span>
+        </div>
+        <div class="color-box" style="background-color: #58B19F;" data-color="#58B19F" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#58B19F</span>
+        </div>
+        <div class="color-box" style="background-color: #9AECDB;" data-color="#9AECDB" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#9AECDB</span>
+        </div>
+        <div class="color-box" style="background-color: #BDC581;" data-color="#BDC581" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#BDC581</span>
+        </div>
+        <div class="color-box" style="background-color: #FC427B;" data-color="#FC427B" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#FC427B</span>
+        </div>
+        <div class="color-box" style="background-color: #FD7272;" data-color="#FD7272" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#FD7272</span>
+        </div>
+        <div class="color-box" style="background-color: #F8EFBA;" data-color="#F8EFBA" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#F8EFBA</span>
+        </div>
+        <div class="color-box" style="background-color: #EAB543;" data-color="#EAB543" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#EAB543</span>
+        </div>
+        <div class="color-box" style="background-color: #25CCF7;" data-color="#25CCF7" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#25CCF7</span>
+        </div>
+        <div class="color-box" style="background-color: #1B9CFC;" data-color="#1B9CFC" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#1B9CFC</span>
+        </div>
+        <div class="color-box" style="background-color: #3B3B98;" data-color="#3B3B98" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3B3B98</span>
+        </div>
+        <div class="color-box" style="background-color: #182C61;" data-color="#182C61" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#182C61</span>
+        </div>
+        <div class="color-box" style="background-color: #6D214F;" data-color="#6D214F" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#6D214F</span>
+        </div>
+        <div class="color-box" style="background-color: #B33771;" data-color="#B33771" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#B33771</span>
+        </div>
+        <div class="color-box" style="background-color: #F97F51;" data-color="#F97F51" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#F97F51</span>
+        </div>
+        <div class="color-box" style="background-color: #FEA47F;" data-color="#FEA47F" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#FEA47F</span>
+        </div>
+        <div class="color-box" style="background-color: #cf6a87;" data-color="#cf6a87" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#cf6a87</span>
+        </div>
+        <div class="color-box" style="background-color: #c44569;" data-color="#c44569" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#c44569</span>
+        </div>
+        <div class="color-box" style="background-color: #596275;" data-color="#596275" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#596275</span>
+        </div>
+        <div class="color-box" style="background-color: #303952;" data-color="#303952" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#303952</span>
+        </div>
+        <div class="color-box" style="background-color: #e66767;" data-color="#e66767" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#e66767</span>
+        </div>
+        <div class="color-box" style="background-color: #ea8685;" data-color="#ea8685" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ea8685</span>
+        </div>
+        <div class="color-box" style="background-color: #e15f41;" data-color="#e15f41" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#e15f41</span>
+        </div>
+        <div class="color-box" style="background-color: #e77f67;" data-color="#e77f67" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#e77f67</span>
+        </div>
+        <div class="color-box" style="background-color: #3dc1d3;" data-color="#3dc1d3" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3dc1d3</span>
+        </div>
+        <div class="color-box" style="background-color: #63cdda;" data-color="#63cdda" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#63cdda</span>
+        </div>
+        <div class="color-box" style="background-color: #546de5;" data-color="#546de5" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#546de5</span>
+        </div>
+        <div class="color-box" style="background-color: #778beb;" data-color="#778beb" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#778beb</span>
+        </div>
+        <div class="color-box" style="background-color: #f78fb3;" data-color="#f78fb3" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f78fb3</span>
+        </div>
+        <div class="color-box" style="background-color: #f8a5c2;" data-color="#f8a5c2" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f8a5c2</span>
+        </div>
+        <div class="color-box" style="background-color: #f5cd79;" data-color="#f5cd79" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f5cd79</span>
+        </div>
+        <div class="color-box" style="background-color: #f7d794;" data-color="#f7d794" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f7d794</span>
+        </div>
+        <div class="color-box" style="background-color: #574b90;" data-color="#574b90" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#574b90</span>
+        </div>
+        <div class="color-box" style="background-color: #786fa6;" data-color="#786fa6" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#786fa6</span>
+        </div>
+        <div class="color-box" style="background-color: #f19066;" data-color="#f19066" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f19066</span>
+        </div>
+        <div class="color-box" style="background-color: #57606f;" data-color="#57606f" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#57606f</span>
+        </div>
+        <div class="color-box" style="background-color: #2f3542;" data-color="#2f3542" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2f3542</span>
+        </div>
+        <div class="color-box" style="background-color: #dfe4ea;" data-color="#dfe4ea" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#dfe4ea</span>
+        </div>
+        <div class="color-box" style="background-color: #ced6e0;" data-color="#ced6e0" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ced6e0</span>
+        </div>
+        <div class="color-box" style="background-color: #f1f2f6;" data-color="#f1f2f6" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#f1f2f6</span>
+        </div>
+        <div class="color-box" style="background-color: #ffffff;" data-color="#ffffff" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffffff</span>
+        </div>
+        <div class="color-box" style="background-color: #747d8c;" data-color="#747d8c" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#747d8c</span>
+        </div>
+        <div class="color-box" style="background-color: #a4b0be;" data-color="#a4b0be" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#a4b0be</span>
+        </div>
+        <div class="color-box" style="background-color: #ff6b81;" data-color="#ff6b81" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff6b81</span>
+        </div>
+        <div class="color-box" style="background-color: #ff4757;" data-color="#ff4757" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff4757</span>
+        </div>
+        <div class="color-box" style="background-color: #5352ed;" data-color="#5352ed" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#5352ed</span>
+        </div>
+        <div class="color-box" style="background-color: #3742fa;" data-color="#3742fa" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#3742fa</span>
+        </div>
+        <div class="color-box" style="background-color: #1e90ff;" data-color="#1e90ff" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#1e90ff</span>
+        </div>
+        <div class="color-box" style="background-color: #70a1ff;" data-color="#70a1ff" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#70a1ff</span>
+        </div>
+        <div class="color-box" style="background-color: #ff6348;" data-color="#ff6348" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff6348</span>
+        </div>
+        <div class="color-box" style="background-color: #ff7f50;" data-color="#ff7f50" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ff7f50</span>
+        </div>
+        <div class="color-box" style="background-color: #2ed573;" data-color="#2ed573" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#2ed573</span>
+        </div>
+        <div class="color-box" style="background-color: #7bed9f;" data-color="#7bed9f" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#7bed9f</span>
+        </div>
+        <div class="color-box" style="background-color: #ffa502;" data-color="#ffa502" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ffa502</span>
+        </div>
+        <div class="color-box" style="background-color: #eccc68;" data-color="#eccc68" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#eccc68</span>
+        </div>
+        <div class="color-box" style="background-color: #6F1E51;" data-color="#6F1E51" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#6F1E51</span>
+        </div>
+        <div class="color-box" style="background-color: #833471;" data-color="#833471" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#833471</span>
+        </div>
+        <div class="color-box" style="background-color: #B53471;" data-color="#B53471" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#B53471</span>
+        </div>
+        <div class="color-box" style="background-color: #ED4C67;" data-color="#ED4C67" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#ED4C67</span>
+        </div>
+        <div class="color-box" style="background-color: #5758BB;" data-color="#5758BB" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#5758BB</span>
+        </div>
+        <div class="color-box" style="background-color: #9980FA;" data-color="#9980FA" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#9980FA</span>
+        </div>
+        <div class="color-box" style="background-color: #D980FA;" data-color="#D980FA" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#D980FA</span>
+        </div>
+        <div class="color-box" style="background-color: #FDA7DF;" data-color="#FDA7DF" onclick="copyColor(this)">
+            <span class="copy-message">Copied!</span>
+            <span class="color-name">#FDA7DF</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyColor(element) {
+        const color = element.getAttribute('data-color');
+        const tempInput = document.createElement('input');
+        tempInput.value = color;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+        
+        const message = element.querySelector('.copy-message');
+        message.style.display = 'block';
+        setTimeout(() => {
+            message.style.display = 'none';
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+.blog-post-container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.blog-post-header {
+    text-align: center;
+    color: #1e272e;
+}
+
+.blog-post-image {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+}
+
+.blog-post-meta {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.blog-post-content {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-top: 20px;
+    color: #1e272e;
+}
+
+.blog-post-footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #1e272e;
+}
+
+.social-share p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.social-share a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+}

@@ -1,11 +1,12 @@
 {% extends "main/layout.html" %} 
+{% load static %}
 <!-- This allows child templates to override or extend these sections with their own content -->
 {% block title %}
     {{ post.title }}
 {% endblock title %} 
 
 {% block head %}
-
+<link rel="stylesheet" href="{% static 'blogpost/css/style.css' %}">
 {% endblock head %}
 
 {% block header %}
@@ -13,12 +14,34 @@
 {% endblock header%}
 
 {% block body %}
-<h1>{{ post.title }}</h1>
-{% if post.image %}
-    <img src="{{ post.image.url }}" alt="{{ post.title }}">
-{% endif %}
-<p>{{ post.content }}</p>
-<p><small>Published on {{ post.published_date }}</small></p>
+<div class="blog-post-container">
+    <!-- Blog Post Header -->
+    <header class="blog-post-header">
+        <h1>{{ post.title }}</h1>
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="blog-post-image">
+        {% endif %}
+        <div class="blog-post-meta">
+            <p>Published on {{ post.published_date|date:"F j, Y" }}</p>
+            <p>By {{ post.author }}</p>
+        </div>
+    </header>
+    
+    <!-- Blog Post Content -->
+    <div class="blog-post-content">
+        <p>{{ post.content|linebreaks }}</p>
+    </div>
+    
+    <!-- Blog Post Footer -->
+    <footer class="blog-post-footer">
+        <div class="social-share">
+            <p>Share this post:</p>
+            <a href="https://twitter.com/share?url={{ request.build_absolute_uri }}" target="_blank">Twitter</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">Facebook</a>
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+</div>
 {% endblock body%}
 
 {% block footer %}

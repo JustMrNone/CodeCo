@@ -65,7 +65,7 @@
             </a>
         </div>
         <div class="index-content">
-            <p>{{ post.content }}</p>
+            <p>{{ post.content|truncatechars:500 }}</p>
         </div>
         <p><small>Published on {{ post.published_date }}</small></p>
         <a href="{% url 'blogpost' slug=post.slug %}" class="index-read-more">Read More</a>
@@ -76,6 +76,7 @@
 <hr class="divider">
 
 
+{% if posts.paginator.num_pages > 1 %}
 <div class="pagination">
     <span class="step-links">
         {% if posts.has_previous %}
@@ -93,6 +94,8 @@
         {% endif %}
     </span>
 </div>
+{% endif %}
+
 {% endfor %}
 {% endblock body %}
 

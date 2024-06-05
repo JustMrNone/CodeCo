@@ -3,7 +3,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from .models import Post, Profile, AccountSettings, Product
+from .models import Post, Profile, AccountSettings, Product, Cart, CartItem
 from .forms import RegisterForm
 from .forms import CustomAuthenticationForm
 from .forms import ProfileForm, AccountSettingsForm
@@ -218,7 +218,7 @@ def blog_search(request):
         elif option == 'category':
             results = Post.objects.filter(categories__name__icontains=query)
         elif option == 'word':
-            results = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains(query)))
+            results = Post.objects.filter(Q(title__icontains=query) | Q(content__icontains=query))
         message = f'Search result for "{query}" in {option}'
     else:
         message = 'Please enter a search term'
@@ -230,3 +230,25 @@ def blog_search(request):
         'option': option
     }
     return render(request, 'main/blog_search_result.html', context)
+
+
+@login_required
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    cart_item, created = CartItem.objects.get_or_create(cart=cart, product=product)
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect('cart_detail')
+
+@login_required
+def cart_detail(request):
+    cart, created = Cart.objects.get_or_create(user=request.user)
+    return render(request, 'main/cart.html', {'cart': cart})
+
+@login_required
+def remove_from_cart(request, item_id):
+    cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+    cart_item.delete()
+    return redirect('cart_detail')

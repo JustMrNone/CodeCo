@@ -14,7 +14,7 @@
 {% endblock header %}
 
 {% block body %}
-<div class="container cart-container">
+<div class="container cart-container mt-5">
     <div class="cart-header">
         <div class="item-details">Product</div>
         <div class="item-price">Price</div>
@@ -23,27 +23,28 @@
         <div class="item-delete">Remove</div>
     </div>
     <!-- Cart Items -->
+    {% for item in cart.cartitem_set.all %}
     <div class="cart-item">
         <div class="item-details">
-            <img src="{% static 'settings/img/Sample.png' %}" alt="Product Image">
-            <span>Product Name</span>
+            <img src="{{ item.product.image.url }}" alt="Product Image">
+            <span>{{ item.product.title }}</span>
         </div>
-        <div class="item-price">$10</div>
+        <div class="item-price">${{ item.product.price }}</div>
         <div class="item-quantity">
-            <input type="number" class="form-control" value="1" min="1">
+            <input type="number" class="form-control" value="{{ item.quantity }}" min="1" data-item-id="{{ item.id }}">
         </div>
-        <div class="item-total">$10</div>
+        <div class="item-total">${{ item.total_price }}</div>
         <div class="item-delete">
-            <button type="button">
+            <a href="{% url 'remove_from_cart' item.id %}" class="btn btn-danger">
                 <i class="fas fa-trash-alt"></i>
-            </button>
+            </a>
         </div>
     </div>
-    <!-- Repeat the cart-item div for more products -->
+    {% endfor %}
 
     <!-- Cart Summary -->
     <div class="cart-summary">
-        <h4>Total: $10</h4>
+        <h4>Total: ${{ cart.total_price }}</h4>
         <a href="#" class="btn btn-primary">Checkout</a>
     </div>
 </div>

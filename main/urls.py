@@ -34,6 +34,12 @@ urlpatterns = [
     path('flatui', views.Flatui, name='flatui'),
     path('note', views.notepad, name='note'),
     path('paint', views.paint, name='paint'),
+    path('todo', views.todo, name="todo"),
+    path('stopwatch', views.stopwatch, name='stopwatch'),
+    path('qrcode', views.generate_qr_code, name='qrcode'),
+    path('pomodoro', views.pomodoro, name='pomodoro'),
+    path('loremipsum', views.loremipsum, name='loremipsum'),
+    path('markdown', views.markdown, name='markdown'),
     path('passwordgenerator', views.passgen, name='passwordgenerator'),
     
 

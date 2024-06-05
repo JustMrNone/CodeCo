@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'tools/css/qrcode.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <h3>QR Code Generator</h3>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" name="data" class="form-control" placeholder="Enter data here" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Generate QR Code</button>
+                </form>
+                {% if img_base64 %}
+                    <div class="mt-4">
+                        <h4>Generated QR Code for: {{ data }}</h4>
+                        <img src="data:image/png;base64,{{ img_base64 }}" alt="QR Code">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

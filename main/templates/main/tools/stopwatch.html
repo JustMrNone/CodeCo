@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'tools/css/stopwatch.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 text-center">
+                <h3>Stopwatch</h3>
+                <div id="time-display" class="display-4 my-3">00:00:00</div>
+                <div class="btn-group" role="group">
+                    <button id="start-btn" class="btn btn-success">Start</button>
+                    <button id="stop-btn" class="btn btn-danger" disabled>Stop</button>
+                    <button id="reset-btn" class="btn btn-secondary" disabled>Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'tools/js/stopwatch.js'%}"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+.clock-container {
+    margin: 20px;
+    position: relative;
+}
+
+.clock {
+    width: 200px;
+    height: 200px;
+    border: 10px solid #333;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.hand {
+    width: 50%;
+    height: 2px;
+    background: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 100%;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out;
+}
+
+.timer {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.task-container {
+    margin-top: 40px;
+}
+
+#task-form {
+    display: flex;
+    justify-content: center;
+}
+
+#task-input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li {
+    background: #fff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

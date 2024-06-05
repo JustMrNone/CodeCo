@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="{% static 'tools/css/pomodoro.css'%}">
+</head>
+<body>
+    <div class="container">
+        <h1>Pomodoro Timer</h1>
+        <div class="clock-container">
+            <div class="clock">
+                <div class="hand"></div>
+            </div>
+            <div class="timer">
+                <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+            <button id="start">Start</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="task-container">
+            <h2>Tasks</h2>
+            <form id="task-form">
+                <input type="text" id="task-input" placeholder="Add a new task">
+                <button type="submit">Add</button>
+            </form>
+            <ul id="task-list"></ul>
+        </div>
+    </div>
+    <script src="{% static 'tools/js/pomodoro.js'%}"></script>
+</body>
+</html>

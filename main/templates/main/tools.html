@@ -48,16 +48,16 @@ Modern Tools
 {% block body %}
 <div class="container">
     <div class="tool">
-        <a href="{% url 'calculator' %}"><span class="name">Calculator</span></a>
-    </div>
-    <div class="tool">
-        <a href="{% url 'colorpicker' %}"><span class="name">Color Picker</span></a>
+        <a href="{% url 'chat:index' %}"><span class="name">Chat</span></a>
     </div>
     <div class="tool">
         <a href="{% url 'flatui' %}"><span class="name">Flat UI Colors</span></a>
     </div>
     <div class="tool">
-        <a href="{% url 'chat:index' %}"><span class="name">Chat</span></a>
+        <a href="{% url 'colorpicker' %}"><span class="name">Color Picker</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'calculator' %}"><span class="name">Calculator</span></a>
     </div>
     <div class="tool">
         <a href="{% url 'note' %}"><span class="name">Notepad</span></a>
@@ -66,8 +66,39 @@ Modern Tools
         <a href="{% url 'paint' %}"><span class="name">Paint</span></a>
     </div>
     <div class="tool">
-        <a href="{% url 'passwordgenerator' %}"><span class="name">Password Generator</span></a>
+        <a href="{% url 'todo' %}"><span class="name">Todo List</span></a>
     </div>
+    <div class="tool">
+        <a href="{% url 'stopwatch' %}"><span class="name">Timer/Stopwatch</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'qrcode' %}"><span class="name">QR Code Generator</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'pomodoro' %}"><span class="name">Pomodoro Timer</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'passwordgenerator' %}"><span class="name">Translator</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'markdown' %}"><span class="name">Markdown Editor</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'loremipsum' %}"><span class="name">Lorem Ipsum Generator</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'passwordgenerator' %}"><span class="name">Text to Speech</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'passwordgenerator' %}"><span class="name">Regex Tester</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'passwordgenerator' %}"><span class="name">IP Address Locator</span></a>
+    </div>
+    <div class="tool">
+        <a href="{% url 'passwordgenerator' %}"><span class="name">passwordgenerator</span></a>
+    </div>
+
 </div>
 {% endblock body%}
 

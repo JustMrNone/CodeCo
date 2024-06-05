@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'tools/cssloremipsum.css'%}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Lorem Ipsum Generator</h1>
+        <div class="card mt-4">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="lengthRange">Select length of Lorem Ipsum:</label>
+                    <input type="range" class="form-control-range" id="lengthRange" min="10" max="10000" value="50" oninput="updateRangeValue(this.value)">
+                    <small id="rangeValue" class="form-text text-muted">Length: 50 words</small>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="generateLoremIpsum()">Generate</button>
+            </div>
+        </div>
+        <div class="mt-4">
+            <h3>Generated Lorem Ipsum:</h3>
+            <div id="output" class="border p-3 mt-2" style="min-height: 100px;"></div>
+        </div>
+    </div>
+    <script src="{% static 'tools/js/loremipsum.js'%}"></script>
+</body>
+</html>

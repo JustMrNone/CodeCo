@@ -13,6 +13,9 @@ from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.db.models import Q
 from django.http import JsonResponse
+import qrcode
+from io import BytesIO
+import base64
 # Create your views here.
 def index(request):
     return render(request, 'main/index.html')
@@ -306,7 +309,8 @@ def product_list(request):
     products = Product.objects.all()
     return render(request, 'product_list.html', {'products': products})
 
-
+def pomodoro(request):
+    return render(request, 'main/tools/pomodoro.html')
 def cal_tool(request):
     return render(request, 'main/tools/calculator.html')
 
@@ -324,4 +328,29 @@ def passgen(request):
 
 def paint(request):
     return render(request, 'main/tools/paint.html')
+
+def todo(request):
+    return render(request, 'main/tools/todo.html')
+
+def stopwatch(request):
+    return render(request, 'main/tools/stopwatch.html')
+
+def loremipsum(request):
+    return render(request, 'main/tools/loremipsum.html')
+
+def markdown(request):
+    return render(request, 'main/tools/markdown.html')
+
+
+
+def generate_qr_code(request):
+    if request.method == 'POST':
+        data = request.POST.get('data')
+        if data:
+            img = qrcode.make(data)
+            buffer = BytesIO()
+            img.save(buffer, format='PNG')
+            img_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+            return render(request, 'main/tools/qrcode.html', {'img_base64': img_base64, 'data': data})
+    return render(request, 'main/tools/qrcode.html')
 

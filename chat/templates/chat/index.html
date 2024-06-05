@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <h1>Chat Rooms</h1>
+    <ul>
+        <li><a href="{% url 'chat:room' room_name='room1' %}">Room 1</a></li>
+        <li><a href="{% url 'chat:room' room_name='room2' %}">Room 2</a></li>
+        <li><a href="{% url 'chat:room' room_name='room3' %}">Room 3</a></li>
+
+    </ul>
+</body>
+</html>

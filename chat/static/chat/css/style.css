@@ -1,0 +1,64 @@
+.chat-log {
+    max-height: 400px; /* Adjust this value as needed */
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+.messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.message strong {
+    color: #007bff;
+}
+
+.message-content {
+    margin-top: 5px;
+}
+
+.chat-form {
+    margin-top: 20px;
+}
+
+.file-link {
+    margin-left: 10px;
+}
+
+/* Optional: Style for the room name */
+h1 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #007bff;
+}
+.custom-input {
+    border-radius: 5px; /* Adjust the border radius as needed */
+    padding: 8px; /* Adjust the padding as needed */
+}
+.row{
+    color: black;
+}
+.btnbln{
+    color: black !important;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.custom-file-upload:hover {
+    background-color: #e9ecef;
+}

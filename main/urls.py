@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.shortcuts import redirect
+from django.urls import reverse
 
 urlpatterns = [
     path('', views.index, name="index"),
@@ -27,5 +29,12 @@ urlpatterns = [
     path('product_list', views.product_list, name='product_list'),
     path('finalize_order/', views.finalize_order, name='finalize_order'),
     path('cart/remove/<int:item_id>/', views.remove_from_cart, name='remove_from_cart'),
+    path('calculator', views.cal_tool, name='calculator'),
+    path('colorpicker', views.colorpicker, name='colorpicker'),
+    path('flatui', views.Flatui, name='flatui'),
+    path('note', views.notepad, name='note'),
+    path('paint', views.paint, name='paint'),
+    path('passwordgenerator', views.passgen, name='passwordgenerator'),
     
+
 ]

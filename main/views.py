@@ -305,3 +305,23 @@ def order_success(request):
 def product_list(request):
     products = Product.objects.all()
     return render(request, 'product_list.html', {'products': products})
+
+
+def cal_tool(request):
+    return render(request, 'main/tools/calculator.html')
+
+def colorpicker(request):
+    return render(request, 'main/tools/colorpicker.html')
+
+def Flatui(request):
+    return render(request, 'main/tools/Flatuicolors.html')
+
+def notepad(request):
+    return render(request, 'main/tools/notepad.html')
+
+def passgen(request):
+    return render(request, 'main/tools/passwordgenerator.html')
+
+def paint(request):
+    return render(request, 'main/tools/paint.html')
+

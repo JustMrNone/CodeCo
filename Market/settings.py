@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'main',
+    'chat',
     'crispy_bootstrap4',
     'crispy_forms',
     "django.contrib.admin",
@@ -73,6 +74,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "Market.wsgi.application"
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -121,7 +127,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'main/static')
+    os.path.join(BASE_DIR, 'main/static'),
+    os.path.join(BASE_DIR, 'chat/static'),
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -134,3 +141,4 @@ STATIC_ROOT = BASE_DIR / "static"
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'main' ,'media')
+

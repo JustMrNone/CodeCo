@@ -1,5 +1,5 @@
 .cart-container {
-    margin-top: 150px;
+    margin-top: 250px !important;
     color: #1e272e;
 }
 .cart-header, .cart-item {
@@ -16,6 +16,7 @@
 .cart-item img {
     width: 100px;
     height: auto;
+    margin-right: 10px;
 }
 .cart-item .item-details {
     flex: 2;

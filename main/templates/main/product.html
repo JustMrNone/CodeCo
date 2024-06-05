@@ -1,25 +1,71 @@
 {% extends "main/layout.html" %} 
 {% load static %}
+
 <!-- This allows child templates to override or extend these sections with their own content -->
 {% block title %}
-    Basket
+    {{ product.title }} - Product Details
 {% endblock title %} 
 
 {% block head %}
-
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Custom CSS styles */
+        body{
+            min-height: 110vh;
+        }
+        .product-details-container {
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-top: auto; /* Vertically center the container */
+            margin-bottom: auto; /* Vertically center the container */
+        }
+        .product-image {
+            max-width: 100%;
+            margin-top: 10px;
+            height: auto;
+        }
+        .product-info {
+            margin-top: 20px;
+        }
+        .add-to-cart-btn {
+            margin-top: 20px;
+        }
+        .container{
+            margin-top: 250px;
+        }
+    </style>
 {% endblock head %}
 
-{% block header %}
-
-{% endblock header%}
-
 {% block body %}
-<h2>{{ product.title }}</h2>
-<img src="{{ product.image.url }}" alt="{{ product.title }}">
-<p>{{ product.description }}</p>
-<p>Price: ${{ product.price }}</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <!-- Product Image -->
+                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+            </div>
+            <div class="col-md-6">
+                <!-- Product Details Container -->
+                <div class="product-details-container">
+                    <!-- Product Title -->
+                    <h2>{{ product.title }}</h2>
+                    <!-- Product Description -->
+                    <p>{{ product.description }}</p>
+                    <!-- Product Price -->
+                    <p>Price: ${{ product.price }}</p>
+                    <!-- Add to Cart Form -->
+                    <form method="POST" action="{% url 'add_to_cart' product.id %}">
+                        {% csrf_token %}
+                        <!-- Add to Cart Button -->
+                        <button type="submit" class="btn btn-primary add-to-cart-btn">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock body%}
 
 {% block footer %}
-
+    <!-- Customize footer if needed -->
 {% endblock footer %}

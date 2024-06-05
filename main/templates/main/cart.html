@@ -31,7 +31,7 @@
         </div>
         <div class="item-price">${{ item.product.price }}</div>
         <div class="item-quantity">
-            <input type="number" class="form-control" value="{{ item.quantity }}" min="1" data-item-id="{{ item.id }}">
+            <input type="number" class="form-control quantity-input" value="{{ item.quantity }}" min="1" data-item-id="{{ item.id }}">
         </div>
         <div class="item-total">${{ item.total_price }}</div>
         <div class="item-delete">
@@ -51,5 +51,34 @@
 {% endblock body %}
 
 {% block footer %}
-<!-- Your custom footer content if any -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.quantity-input').on('change', function() {
+            var itemId = $(this).data('item-id');
+            var newQuantity = $(this).val();
+
+            // Send an AJAX request to update the quantity for the item
+            $.ajax({
+                url: '{% url "update_cart_item" %}',
+                type: 'POST',
+                data: {
+                    item_id: itemId,
+                    quantity: newQuantity,
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function(response) {
+                    // Handle successful response (if needed)
+                    console.log(response);
+                    // Reload the page to reflect changes
+                    window.location.reload();
+                },
+                error: function(xhr, errmsg, err) {
+                    // Handle errors (if needed)
+                    console.log(xhr.status + ": " + xhr.responseText);
+                }
+            });
+        });
+    });
+</script>
 {% endblock footer %}

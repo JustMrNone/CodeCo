@@ -12,6 +12,7 @@ from .forms import ProfileForm, AccountSettingsForm, ChangePasswordForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib import messages
 from django.db.models import Q
+from django.http import JsonResponse
 # Create your views here.
 def index(request):
     return render(request, 'main/index.html')
@@ -252,3 +253,24 @@ def remove_from_cart(request, item_id):
     cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
     cart_item.delete()
     return redirect('cart_detail')
+
+@login_required
+def update_cart_item(request):
+    if request.method == 'POST':
+        item_id = request.POST.get('item_id')
+        quantity = int(request.POST.get('quantity', 1))  # Default quantity is 1 if not provided
+
+        # Retrieve the cart item
+        cart_item = get_object_or_404(CartItem, id=item_id, cart__user=request.user)
+
+        # Update the quantity
+        if quantity > 0:
+            cart_item.quantity = quantity
+            cart_item.save()
+            return JsonResponse({'success': True, 'message': 'Cart item updated successfully'})
+        else:
+            # If quantity is 0 or negative, remove the item from the cart
+            cart_item.delete()
+            return JsonResponse({'success': True, 'message': 'Cart item removed successfully'})
+
+    return JsonResponse({'success': False, 'message': 'Invalid request method'})

@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Rooms</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Center the list */
+        .center-list {
+            margin: 0 auto;
+            width: 50%; /* Adjust as needed */
+        }
+    </style>
 </head>
 <body>
-    <h1>Chat Rooms</h1>
-    <ul>
-        <li><a href="{% url 'chat:room' room_name='room1' %}">Room 1</a></li>
-        <li><a href="{% url 'chat:room' room_name='room2' %}">Room 2</a></li>
-        <li><a href="{% url 'chat:room' room_name='room3' %}">Room 3</a></li>
-
-    </ul>
+    <div class="container mt-lg-5">
+        <h1 class="text-center">Chat Rooms</h1>
+        <ul class="list-group center-list">
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room1' %}">Room 1</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room2' %}">Room 2</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room3' %}">Room 3</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room4' %}">Room 4</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room5' %}">Room 5</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room6' %}">Room 6</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room7' %}">Room 7</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room8' %}">Room 8</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room9' %}">Room 9</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room10' %}">Room 10</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room11' %}">Room 11</a></li>
+            <li class="list-group-item"><a href="{% url 'chat:room' room_name='room12' %}">Room 12</a></li>
+        </ul>
+    </div>
 </body>
 </html>

@@ -1,0 +1,93 @@
+body{
+  background-color: #576574;
+}
+.backbtn{
+  text-align: center;
+}
+.calculator {
+  margin: 4% auto;
+  font-family: "Source Sans Pro", sans-serif;
+  letter-spacing: normal;
+  font-size: 1.6rem;
+  width: 480px; /* Adjust as needed */
+  border-radius: 4%;
+  margin-top: 200px;
+}
+
+.input {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  height: 110px;
+  padding: 5px;
+  text-align: right;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.operators div, .numbers div {
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 2rem;
+  background-color: #f3f3f3;
+  transition: all 0.2s ease-in-out;
+}
+
+.operators div:hover, .numbers div:hover {
+  background-color: #e0e0e0;
+}
+
+.equal {
+  display: inline-block;
+  border: 1px solid #3079ed;
+  border-radius: 3px;
+  width: 120px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #fff;
+  background-color: #4d90fe;
+  transition: all 0.2s ease-in-out;
+}
+
+.equal:hover {
+  background-color: #307cf9;
+}
+
+.equal:active {
+  font-weight: bold;
+}
+
+.printed-numbers {
+  font-size: 4rem; /* Adjust font size as needed */
+  text-align: left; /* Align text to the right */
+  padding: 10px; /* Add padding for spacing */
+  margin-right: auto;
+  margin-left: auto;
+}
+.backbtn {
+  display: flex;
+  justify-content: center;
+}
+
+.backbtn a {
+  text-decoration: none;
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.backbtn a:hover {
+  background-color: #45a049; /* Darker green on hover */
+}

@@ -1,11 +1,12 @@
 {% extends "main/layout.html" %} 
+{% load static %}
 <!-- This allows child templates to override or extend these sections with their own content -->
 {% block title %}
     info
 {% endblock title %} 
 
 {% block head %}
-
+<link rel="stylesheet" href="{% static 'tools/css/style.css' %}">
 {% endblock head %}
 
 {% block header %}

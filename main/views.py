@@ -363,10 +363,16 @@ def generate_qr_code(request):
             return render(request, 'main/tools/qrcode.html', {'img_base64': img_base64, 'data': data})
     return render(request, 'main/tools/qrcode.html')
 
+
 def eduarc(request):
-    posts_list = EduPost.objects.all()  # Call all() method to execute the query
-    paginator = Paginator(posts_list, 12)
+    query = request.GET.get('q')
+    if query:
+        posts_list = EduPost.objects.filter(title__icontains=query)  # Filter posts by search query
+    else:
+        posts_list = EduPost.objects.all()  # Get all posts if no search query
+
+    paginator = Paginator(posts_list, 12)  # Paginate the posts
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
-    return render(request, 'main/eduarc.html', {'posts': page_obj})
+
+    return render(request, 'main/eduarc.html', {'page_obj': page_obj, 'query': query})

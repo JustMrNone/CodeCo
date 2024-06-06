@@ -137,11 +137,22 @@
 
                     
                         <div class="link-container">
-                            <a href="https://github.com/JustMrNone" class="icon-container lastit">
-                              <div class="icon-wrapper">
-                                <i class="fas fa-user micons2" aria-hidden="true"></i>
-                              </div>
-                            </a>
+                            
+                            {% if user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="icon-container lastit">
+                                <div class="icon-wrapper">
+                                  <i class="fas fa-sign-out micons2" aria-hidden="true"></i>
+                                </div>
+                              </a>
+                            {% else %}
+                            <a href="{% url 'profile' %}" class="icon-container lastit">
+                                <div class="icon-wrapper">
+                                  <i class="fas fa-user micons2" aria-hidden="true"></i>
+                                </div>
+                              </a>
+                            {% endif %}
+                                
+
                             <a href="{% url 'cart_detail' %}" class="icon-container lastit">
                               <div class="icon-wrapper">
                                 <i class="fas fa-basket-shopping micons3" title="Subscribe to my YouTube channel"></i>

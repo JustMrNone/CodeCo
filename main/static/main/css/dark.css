@@ -8,7 +8,7 @@ nav.navdark {
   width: 100%; /* Occupy the full width of the parent container */
   max-width: 100%; /* Limit the maximum width to the parent container width */
   margin: 0;
-  background-color: #7a4343; /*apply Darkboy Red
+  background-color: #7a4343; /*apply DarkboyRed
   overflow-x: hidden; /* Prevent horizontal overflow */
   height: 80px;
   overflow: hidden;
@@ -29,20 +29,12 @@ nav.navdark {
   display: flex;
   align-items: center;
 }
-@media (max-width: 768px) {
+
+@media (max-width: 830px) {
   .NavToggle {
-    position: absolute!important; /* Ensure it takes precedence */
-    top: 1px !important; /* Adjust the top position */
-    right: 20px !important; /* Position at the right edge */
-    margin-top: 15px; /* Optional, adjust or remove as needed */
-    z-index: 10000 !important; /* Ensure it is above other elements */
-    display: flex !important; /* Ensure flexbox is applied */
-    align-items: center !important; /* Center children vertically */
-  }
-}
-@media (max-width: 830px){
-  .NavToggle {
-    display: none;
+    right: 105px !important; /* Ensure it is at the right edge */
+    top: 2px !important; /* Adjust as needed */
+    display: flex !important; /* Ensure it's displayed */
   }
 }
 /*BackGround*/

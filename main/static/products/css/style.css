@@ -60,3 +60,28 @@
         margin-left: 100px; /* Adjust this value as needed */
     }
 }
+@media (min-width: 800px) {
+    .form-inline .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .form-inline .form-control {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .form-inline .btn {
+        flex: none;
+    }
+}
+
+.card-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.card-body .price p {
+    margin: 0;
+}

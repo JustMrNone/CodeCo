@@ -145,13 +145,15 @@ body {
     padding: 10px 20px;
     margin-top: 10px;
     background: #CAD3C8;
+    border-color: #CAD3C8;
     color: #1e272e;
-    border-radius: 5px;
+    border-radius: 5px !important;
     text-decoration: none;
 }
 
 .palette-button:hover {
     background: #d1ccc0;
+    border-color: #CAD3C8;
 }
 
 .palette-footer {

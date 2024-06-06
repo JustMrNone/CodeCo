@@ -1,9 +1,9 @@
-{% extends "main/layout.html" %} 
+{% extends "main/layout.html" %}
 {% load static %}
 <!-- This allows child templates to override or extend these sections with their own content -->
 {% block title %}
     Archive
-{% endblock title %} 
+{% endblock title %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'index/css/style.css' %}">
@@ -12,16 +12,29 @@
 
 {% block header %}
 
-{% endblock header%}
+{% endblock header %}
 
 {% block body %}
 <div class="palette-header">
     <h1 class="palette-title"></h1>
 </div>
 <div class="container mt-5">
-    <h4 class="display-4 indexh4">Top Scientific Posts:</h4>
+    <h4 class="display-4 indexh4">All Scientific Posts:</h4>
+    
+    <!-- Search Form -->
+    <div class="d-flex justify-content-center mb-4">
+        <form class="form-inline w-75" method="GET" action="">
+            <div class="input-group w-100">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" name="q" value="{{ request.GET.q }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
     <div class="palette-container row">
-        {% for post in posts %}
+        {% for post in page_obj %}
         <div class="palette-card col-md-4 mb-4">
             <img src="{{ post.image.url }}" alt="{{ post.title }}" class="palette-image img-fluid">
             <h2 class="palette-card-title">{{ post.title }}</h2>
@@ -32,66 +45,44 @@
     </div>
 </div>
 
-    <!-- Pagination -->
-    {% if page_obj.paginator.num_pages > 1 %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li class="page-item">
-                <a class="page-link" href="?page=1" aria-label="First">
-                    <span aria-hidden="true">&laquo; first</span>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
-                    <span aria-hidden="true">previous</span>
-                </a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="First">
-                    <span aria-hidden="true">&laquo; first</span>
-                </a>
-            </li>
-            <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">previous</span>
-                </a>
-            </li>
-            {% endif %}
+<!-- Pagination -->
+{% if page_obj.paginator.num_pages > 1 %}
+<div class="pagination-container">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="First">
+                <span aria-hidden="true">&laquo; First</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+            </a>
+        </li>
+        {% endif %}
 
-            <li class="page-item active">
-                <span class="page-link">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
-                </span>
-            </li>
+        {% for num in page_obj.paginator.page_range %}
+        {% if num == page_obj.number %}
+        <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
 
-            {% if page_obj.has_next %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
-                    <span aria-hidden="true">next</span>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
-                    <span aria-hidden="true">last &raquo;</span>
-                </a>
-            </li>
-            {% else %}
-            <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">next</span>
-                </a>
-            </li>
-            <li class="page-item disabled">
-                <a class="page-link" href="#" aria-label="Last">
-                    <span aria-hidden="true">last &raquo;</span>
-                </a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-
-
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" aria-label="Last">
+                <span aria-hidden="true">Last &raquo;</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
 {% endblock body %}

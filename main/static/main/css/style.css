@@ -191,6 +191,7 @@ body {
   color: #1e272e;
 }
 .homeicon {
+  margin-right: 10px;
   transition: transform 0.3s ease, text-shadow 0.3s ease; /* Add transition for both transform and text-shadow */
 }
 

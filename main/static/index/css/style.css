@@ -246,6 +246,10 @@ body {
 }
 
 .indexh4{
-    color: #1e272e !important;
+    color: #1e272e;
     font-size: 40px !important;
+}
+.arch{
+    color: #0984e3;
+    font-size: 25px;
 }

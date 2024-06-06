@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Post, Category, Tag, Comment, Product
-
+from .models import EduPost
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'author', 'published_date', 'updated_date')
     list_filter = ('published_date', 'updated_date', 'author')
@@ -34,7 +34,12 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ('title', 'category')
     prepopulated_fields = {'slug': ('title',)}
 
+class EduPostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+    search_fields = ('title', 'description')
 
+
+admin.site.register(EduPost, EduPostAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Tag, TagAdmin)

@@ -21,7 +21,7 @@ urlpatterns = [
     path('change_password/', views.change_password, name='change_password'),
     path('product/<int:pk>/', views.ProductDetail, name='product_detail'),
     path('product/search/', views.product_search, name='product_search'),
-     path('cart/add/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
+    path('cart/add/<int:product_id>/', views.add_to_cart, name='add_to_cart'),
     path('cart/', views.cart_detail, name='cart_detail'),
     path('update-cart-item/', views.update_cart_item, name='update_cart_item'),
     path('checkout/', views.checkout, name='checkout'),
@@ -43,6 +43,8 @@ urlpatterns = [
     path('regextester', views.regextester, name='regextester'),
     path('texttospeech', views.texttospeech, name='texttospeech'),
     path('passwordgenerator', views.passgen, name='passwordgenerator'),
+    path('archive', views.eduarc, name='archive'),
+    path('edupost/<int:pk>/', views.edu_post_detail, name='edu_post_detail')
     
 
 ]

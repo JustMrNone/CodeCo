@@ -1,0 +1,70 @@
+
+{% extends "main/layout.html" %} 
+{% load static %}
+
+
+{% load static %}
+<!-- This allows child templates to override or extend these sections with their own content -->
+{% block title %}
+    {{ post.title }}
+{% endblock title %} 
+
+{% block head %}
+
+<style>
+    .scientific-post {
+        margin-top: 200px;
+        font-family: 'Times New Roman', Times, serif;
+        color: #333;
+        background-color: #f8f9fa;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .scientific-post h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+    .scientific-post img {
+        border: 1px solid #ddd;
+        padding: 10px;
+        background-color: #fff;
+    }
+    .scientific-post p {
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+    .scientific-post a {
+        font-size: 1.1rem;
+    }
+</style>
+
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'blogpost/css/style.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+{% endblock head %}
+
+{% block header %}
+
+{% endblock header%}
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <div class="container scientific-post">
+        <h1 class="display-4">{{ post.title }}</h1>
+        <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid mb-4">
+        <p>{{ post.description }}</p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Back to Home</a>
+    </div>
+</body>
+</html>
+{% endblock body%}
+
+{% block footer %}
+
+{% endblock footer %}

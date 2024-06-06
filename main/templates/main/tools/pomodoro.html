@@ -5,30 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'tools/css/pomodoro.css'%}">
 </head>
 <body>
-    <div class="container">
-        <h1>Pomodoro Timer</h1>
-        <div class="clock-container">
-            <div class="clock">
+    <div class="container text-center mt-5">
+        <h1 class="display-4">Pomodoro Timer</h1>
+        <div class="clock-container my-4">
+            <div class="clock mx-auto position-relative">
                 <div class="hand"></div>
             </div>
-            <div class="timer">
+            <div class="timer display-4 my-3">
                 <span id="minutes">25</span>:<span id="seconds">00</span>
             </div>
-            <button id="start">Start</button>
-            <button id="reset">Reset</button>
+            <button id="start" class="btn btn-primary mx-2">Start</button>
+            <button id="reset" class="btn btn-secondary mx-2">Reset</button>
         </div>
-        <div class="task-container">
-            <h2>Tasks</h2>
-            <form id="task-form">
-                <input type="text" id="task-input" placeholder="Add a new task">
-                <button type="submit">Add</button>
+        <div class="task-container mt-5">
+            <h2 class="h4">Tasks</h2>
+            <form id="task-form" class="form-inline justify-content-center my-3">
+                <input type="text" id="task-input" class="form-control mr-2" placeholder="Add a new task">
+                <button type="submit" class="btn btn-success">Add</button>
             </form>
-            <ul id="task-list"></ul>
+            <ul id="task-list" class="list-unstyled">
+                <!-- Tasks will be appended here -->
+            </ul>
         </div>
     </div>
     <script src="{% static 'tools/js/pomodoro.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

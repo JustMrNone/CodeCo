@@ -1,0 +1,76 @@
+{% extends "main/layout.html" %} 
+{% load static %}
+<!-- This allows child templates to override or extend these sections with their own content -->
+{% block title %}
+    Archive
+{% endblock title %} 
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'index/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'edupost/css/style.css' %}">
+{% endblock head %}
+
+{% block header %}
+
+{% endblock header%}
+
+{% block body %}
+<div class="palette-header">
+    <h1 class="palette-title"></h1>
+</div>
+<div class="container mt-5">
+    <h4 class="display-4 indexh4">Top Scientific Posts:</h4>
+    <div class="palette-container row">
+        {% for post in posts %}
+        <div class="palette-card col-md-4 mb-4">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="palette-image img-fluid">
+            <h2 class="palette-card-title">{{ post.title }}</h2>
+            <p class="palette-description">{{ post.description|truncatechars:300 }}</p>
+            <a href="{% url 'edu_post_detail' post.pk %}" class="palette-button btn btn-primary">Read More</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Pagination -->
+{% if posts.has_other_pages %}
+<div class="pagination-container">
+    <ul class="pagination justify-content-center">
+        {% if posts.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">&laquo; First</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts.previous_page_number }}" aria-label="Previous">
+                <span aria-hidden="true">Previous</span>
+            </a>
+        </li>
+        {% endif %}
+
+        {% for num in posts.paginator.page_range %}
+        {% if num == posts.number %}
+        <li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+        {% else %}
+        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+        {% endif %}
+        {% endfor %}
+
+        {% if posts.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">Next</span>
+            </a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ posts.paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">Last &raquo;</span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+{% endif %}
+
+{% endblock body %}

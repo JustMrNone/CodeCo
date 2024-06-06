@@ -16,9 +16,11 @@ from django.http import JsonResponse
 import qrcode
 from io import BytesIO
 import base64
+from .models import EduPost
 # Create your views here.
 def index(request):
-    return render(request, 'main/index.html')
+    posts = EduPost.objects.order_by('-created_at')[:3]
+    return render(request, 'main/index.html',  {'posts': posts})
 
 def blog(request):
     post_list = Post.objects.all()
@@ -345,6 +347,10 @@ def iploc(request):
 def regextester(request):
     return render(request, 'main/tools/regextester.html')
 
+def edu_post_detail(request, pk):
+    post = get_object_or_404(EduPost, pk=pk)
+    return render(request, 'main/edu_post_detail.html', {'post': post})
+
 
 def generate_qr_code(request):
     if request.method == 'POST':
@@ -357,3 +363,10 @@ def generate_qr_code(request):
             return render(request, 'main/tools/qrcode.html', {'img_base64': img_base64, 'data': data})
     return render(request, 'main/tools/qrcode.html')
 
+def eduarc(request):
+    posts_list = EduPost.objects.all()  # Call all() method to execute the query
+    paginator = Paginator(posts_list, 12)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'main/eduarc.html', {'posts': page_obj})

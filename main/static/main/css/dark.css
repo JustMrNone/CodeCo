@@ -94,6 +94,7 @@ nav.navdark {
 }
 .dark-mode .card{
   border: 1px solid #3d3d3d !important;
+  background-color: #4b4b4b !important;
 }
 .dark-mode .card-header{
   background-color: #2C3A47 !important;

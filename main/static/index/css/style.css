@@ -255,3 +255,15 @@ body {
     color: #0984e3;
     font-size: 25px;
 }
+
+.card-img-top {
+    height: 200px; /* Adjust the height as needed */
+    object-fit: cover;
+}
+.card {
+    transition: transform 0.3s;
+    background: #f7f1e3;
+}
+.card:hover {
+    transform: translateY(-10px);
+}

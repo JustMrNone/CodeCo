@@ -14,7 +14,7 @@ def room(request, room_name):
             message.user = request.user
             message.save()
             chat_room.messages.add(message)
-            return redirect('room', room_name=room_name)
+            return redirect('chat:room', room_name=room_name)
     else:
         form = MessageForm()
     return render(request, 'chat/room.html', {

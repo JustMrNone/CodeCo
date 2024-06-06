@@ -66,7 +66,7 @@ def tools(request):
     
 def texttospeech(request):
     return render(request, 'main/tools/tts.html')
-
+@login_required
 def settings(request):
     user = request.user
 

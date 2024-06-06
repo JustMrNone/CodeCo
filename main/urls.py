@@ -41,6 +41,7 @@ urlpatterns = [
     path('loremipsum', views.loremipsum, name='loremipsum'),
     path('iplocator', views.iploc, name='iplocator'),
     path('regextester', views.regextester, name='regextester'),
+    path('texttospeech', views.texttospeech, name='texttospeech'),
     path('passwordgenerator', views.passgen, name='passwordgenerator'),
     
 

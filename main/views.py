@@ -62,7 +62,8 @@ def product_search(request):
 def tools(request):
     return render(request, 'main/tools.html')
     
-
+def texttospeech(request):
+    return render(request, 'main/tools/tts.html')
 
 def settings(request):
     user = request.user

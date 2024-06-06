@@ -1,0 +1,35 @@
+#colorCanvas {
+    height: 250px;
+    background-color: #4287f5;
+}
+.card-body{
+    background-color: #718093;
+    color: #f5f6fa;
+    border: none !important;
+    height: 500px;
+}
+.card {
+    margin-top: 250px;
+    background-color: #f5f6fa;
+    color: #f5f6fa;
+    height: 500px;
+}
+
+.form-control {
+    background-color: #dcdde1;
+    color: #2f3640;
+    border: none;
+}
+
+.form-control::placeholder {
+    color: #40739e;
+}
+
+input[type="color"] {
+    width: 100%;
+    height: 150px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+}

@@ -1,5 +1,5 @@
 """
-ASGI config for Market project.
+ASGI config for CodeCo project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -23,6 +23,6 @@ application = ProtocolTypeRouter({
         )
     ),
 })
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Market.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "CodeCo.settings")
 
 application = get_asgi_application()

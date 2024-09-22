@@ -4,6 +4,8 @@
   <img src="https://justmrnone.github.io/NeverEndingPong/repersentation/codeco.png" width="100%">
 </a>  
 </div>
+
+
 This Django application is designed to provide a comprehensive platform that integrates various functionalities for users, including:
 
 ## 1. Educational Content Management
